@@ -1,9 +1,9 @@
 import { Button } from "@/components/Button";
 import { DiscoverRolante } from "@/components/Home/DiscoverRolante";
 import { IconHotel, IconPin, IconPlane, IconWhats } from "@/components/Icons/";
-import { IconBtc } from "@/components/Icons/IconBtc";
 import { IconParty } from "@/components/Icons/IconParty";
 import { IconPins } from "@/components/Icons/IconPins";
+import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
 
@@ -13,7 +13,7 @@ export default function Home() {
       <Header />
       <DiscoverRolante />
       <div className="w-full mt-16 pt-6 pb-6 flex justify-center items-center gap-3">
-        <Title>Bitcoin é aqui</Title>
+        <Title>O que fazer na Região?</Title>
       </div>
       <div className="w-full pt-5">
         <div className="container grid grid-cols-3 gap-3 mt-8 mb-8">
@@ -120,6 +120,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

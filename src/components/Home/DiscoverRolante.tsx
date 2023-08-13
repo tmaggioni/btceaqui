@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Button } from "../Button";
-import { Title } from "../Title";
 
 export const DiscoverRolante = () => {
   return (
@@ -84,7 +83,7 @@ export const DiscoverRolante = () => {
         <div className="min-w-[450px]">
           <div className="relative w-full h-[392px]">
             <Image
-              src={"/imgs/paisagem.png"}
+              src={"/imgs/foto2-dir.png"}
               alt="Background"
               fill
               objectFit="contain"
@@ -96,7 +95,7 @@ export const DiscoverRolante = () => {
         <div className="min-w-[450px]">
           <div className="relative w-full h-[392px]">
             <Image
-              src={"/imgs/paisagem2.png"}
+              src={"/imgs/foto-esq.png"}
               alt="Background"
               fill
               objectFit="contain"
