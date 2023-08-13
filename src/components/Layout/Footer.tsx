@@ -5,8 +5,8 @@ import { TitleFooter } from "../TitleFooter";
 export const Footer = () => {
   return (
     <div className="w-full mt-10 pt-10 bg-[#F5F5F5] border-t-4 border-primary">
-      <div className="container flex items-center justify-between">
-        <Link href="/">
+      <div className="container flex items-center justify-between lg:flex-col lg:items-start lg:gap-5">
+        <Link href="/" className="lg:self-center">
           <Image
             src={"/imgs/logo.png"}
             width={89}
@@ -71,7 +71,7 @@ export const Footer = () => {
                   width={25}
                   height={25}
                   src={"/imgs/insta.png"}
-                  alt="Instagram logo"
+                  alt="Instagram link"
                 />
                 @bitcoineaqui
               </a>
@@ -86,7 +86,7 @@ export const Footer = () => {
                   width={25}
                   height={25}
                   src={"/imgs/iris.png"}
-                  alt="Instagram logo"
+                  alt="Iris link"
                 />
                 https://iris.to/bitcoineaqui
               </a>
@@ -100,7 +100,7 @@ export const Footer = () => {
                   width={25}
                   height={25}
                   src={"/imgs/x.png"}
-                  alt="Instagram logo"
+                  alt="Link twitter"
                 />
                 @bitcoineaqui
               </a>
@@ -114,7 +114,7 @@ export const Footer = () => {
                   width={25}
                   height={25}
                   src={"/imgs/whats.png"}
-                  alt="Instagram logo"
+                  alt="Pergunte a um morador!"
                 />
                 Pergunte a um morador!
               </a>

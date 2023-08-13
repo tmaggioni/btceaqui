@@ -17,20 +17,15 @@ const config: Config = {
         text: "#FCFAF8",
       },
       screens: {
-        sm: "640px",
+        sm: { max: "639px" },
         // => @media (min-width: 640px) { ... }
 
-        md: "768px",
+        md: { max: "767px" },
         // => @media (min-width: 768px) { ... }
 
-        lg: "1024px",
-        // => @media (min-width: 1024px) { ... }
-
-        xl: "1024px",
-        // => @media (min-width: 1280px) { ... }
-
-        "2xl": "1024px",
-        // => @media (min-width: 1536px) { ... }
+        lg: { max: "1023px" },
+        // => @media (min-width: 1024px) { ... },
+        xl: { max: "1279px" },
       },
       boxShadow: {
         "3xl": "0px 7px 16px 0px rgba(0, 0, 0, 0.50)",
@@ -42,6 +37,12 @@ const config: Config = {
 
       container: {
         center: true,
+        screens: {
+          sm: "85vw",
+          md: "85vw",
+          lg: "1024px",
+          xl: "1280px",
+        },
       },
     },
   },

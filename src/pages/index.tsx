@@ -6,6 +6,9 @@ import { IconPins } from "@/components/Icons/IconPins";
 import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
+import { getIsSsrMobile } from "@/hooks/getSsrMobile";
+import { useIsMobile } from "@/hooks/useIsMobile";
+import { GetServerSidePropsContext } from "next";
 
 export default function Home() {
   return (
@@ -16,7 +19,7 @@ export default function Home() {
         <Title>O que fazer na Região?</Title>
       </div>
       <div className="w-full pt-5">
-        <div className="container grid grid-cols-3 gap-3 mt-8 mb-8">
+        <div className="container grid grid-cols-3 gap-3 mt-8 mb-8 lg:grid-cols-1">
           <div className="bg-white transition-all shadow-xl rounded-2xl p-10 flex items-center justify-between flex-col gap-5 ">
             <IconPins width={"50px"} height={"50px"} />
 
@@ -123,4 +126,12 @@ export default function Home() {
       <Footer />
     </>
   );
+}
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  return {
+    props: {
+      isSsrMobile: getIsSsrMobile(context),
+    },
+  };
 }

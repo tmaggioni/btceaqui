@@ -8,7 +8,9 @@ export const Title = ({ children }: Props) => {
     <div className="flex items-center justify-center gap-1">
       <IconBtc width={"50px"} height={"50px"} />
       <div className="bg-primary p-1">
-        <h1 className="text-4xl font-bold drop-shadow-title">{children}</h1>
+        <h1 className="text-4xl font-bold drop-shadow-title lg:text-2xl">
+          {children}
+        </h1>
       </div>
     </div>
   );

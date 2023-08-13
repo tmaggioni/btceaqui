@@ -1,7 +1,10 @@
 import Image from "next/image";
 import { Button } from "../Button";
+import { Parallax } from "react-scroll-parallax";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export const DiscoverRolante = () => {
+  const isMobile = useIsMobile();
   return (
     <>
       <div className="w-full relative flex flex-col justify-center items-center h-[80vh]">
@@ -12,18 +15,20 @@ export const DiscoverRolante = () => {
           className="object-cover"
         />
         <div className="relative z-10 flex flex-col items-center justify-center gap-7">
-          <h2 className="text-5xl text-white drop-shadow-btc font-bold text-center flex flex-col gap-2">
+          <h2 className="text-5xl lg:text-2xl text-white drop-shadow-btc font-bold text-center flex flex-col gap-2">
             <span>
-              Viver <span className="text-7xl">100%</span> em BTC?
+              Viver <span className="text-7xl lg:text-3xl">100%</span> em BTC?
             </span>
             <span>Aqui já é possível</span>
           </h2>
           <Button label="Confira os pontos!" link={"/"} />
         </div>
       </div>
-      <div className="container flex items-center justify-center gap-5 mt-[-50px]">
+      <div className="container flex items-center justify-center gap-5 mt-[-50px]  lg:flex-col relative z-20">
         <div className="flex flex-col gap-3">
-          <h2 className="text-4xl font-bold">Descubra Rolante e região</h2>
+          <h2 className="text-4xl font-bold lg:text-2xl">
+            Descubra Rolante e região
+          </h2>
 
           <p className="text-base max-w-[500px]">
             Um refúgio encantador e seguro, onde a beleza natural se une à
@@ -34,27 +39,31 @@ export const DiscoverRolante = () => {
           </p>
         </div>
 
-        <div className="min-w-[450px]">
-          <div className="relative w-full h-[392px]">
-            <Image
-              src={"/imgs/foto-dir.png"}
-              alt="Background"
-              fill
-              objectFit="contain"
-            />
-          </div>
+        <div className="min-w-[450px] lg:min-w-[95%] lg:max-w-[95%]">
+          <Parallax speed={-9} disabled={isMobile}>
+            <div className="relative w-full h-[392px] lg:h-[250px]">
+              <Image
+                src={"/imgs/foto-dir.png"}
+                alt="Background"
+                fill
+                objectFit="contain"
+              />
+            </div>
+          </Parallax>
         </div>
       </div>
-      <div className="container flex items-center justify-center gap-5 mt-[-50px]">
-        <div className="min-w-[450px]">
-          <div className="relative w-full h-[392px]">
-            <Image
-              src={"/imgs/foto-esq.png"}
-              alt="Background"
-              fill
-              objectFit="contain"
-            />
-          </div>
+      <div className="container flex items-center justify-center gap-5 mt-[-50px] lg:mt-[0px] lg:flex-col">
+        <div className="min-w-[450px] lg:min-w-[95%] lg:max-w-[95%] lg:order-2">
+          <Parallax speed={-5} disabled={isMobile}>
+            <div className="relative w-full h-[392px] lg:h-[250px]">
+              <Image
+                src={"/imgs/foto-esq.png"}
+                alt="Background"
+                fill
+                objectFit="contain"
+              />
+            </div>
+          </Parallax>
         </div>
         <div className="flex flex-col gap-3">
           <p className="text-base max-w-[500px]">
@@ -67,7 +76,7 @@ export const DiscoverRolante = () => {
           </p>
         </div>
       </div>
-      <div className="container flex items-center justify-center gap-5 mt-[-50px]">
+      <div className="container flex items-center justify-center gap-5 mt-[-50px] lg:mt-[0px] lg:flex-col">
         <div className="flex flex-col gap-3">
           <p className="text-base max-w-[500px]">
             Em Rolante, viver a vida totalmente em Bitcoin é uma realidade.
@@ -80,27 +89,31 @@ export const DiscoverRolante = () => {
           </p>
         </div>
 
-        <div className="min-w-[450px]">
-          <div className="relative w-full h-[392px]">
-            <Image
-              src={"/imgs/foto2-dir.png"}
-              alt="Background"
-              fill
-              objectFit="contain"
-            />
-          </div>
+        <div className="min-w-[450px] lg:min-w-[95%] lg:max-w-[95%]">
+          <Parallax speed={-7} disabled={isMobile}>
+            <div className="relative w-full h-[392px] lg:h-[250px]">
+              <Image
+                src={"/imgs/foto2-dir.png"}
+                alt="Background"
+                fill
+                objectFit="contain"
+              />
+            </div>
+          </Parallax>
         </div>
       </div>
-      <div className="container flex items-center justify-center gap-5">
-        <div className="min-w-[450px]">
-          <div className="relative w-full h-[392px]">
-            <Image
-              src={"/imgs/foto-esq.png"}
-              alt="Background"
-              fill
-              objectFit="contain"
-            />
-          </div>
+      <div className="container flex items-center justify-center gap-5 lg:flex-col">
+        <div className="min-w-[450px] lg:min-w-[95%] lg:max-w-[95%] lg:order-2">
+          <Parallax speed={-8} disabled={isMobile}>
+            <div className="relative w-full h-[392px] lg:h-[250px]">
+              <Image
+                src={"/imgs/foto-esq.png"}
+                alt="Background"
+                fill
+                objectFit="contain"
+              />
+            </div>
+          </Parallax>
         </div>
         <div className="flex flex-col gap-3">
           <p className="text-base max-w-[500px]">
