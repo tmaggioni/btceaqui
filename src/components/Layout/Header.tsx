@@ -81,7 +81,7 @@ export const Header = () => {
         <div id="google_translate_element" />
       </div> */}
       </div>
-      <div className="hidden bg-white lg:flex items-center p-1 w-full  justify-between relative z-20">
+      <div className="hidden bg-white shadow-md lg:flex items-center p-1 w-full  justify-between relative z-20">
         <IconMenu onClick={() => setOpenedMenu(!openedMenu)} />
         <Image
           src={"/imgs/logo.png"}
@@ -99,7 +99,7 @@ export const Header = () => {
         }`}
       >
         <div
-          className={`w-[45%] h-full bg-white transition-all delay-200 duration-200 p-3 flex gap-3 flex-col relative ${
+          className={`w-[60%] h-full bg-white transition-all delay-100 duration-200 p-3 flex gap-3 flex-col relative ${
             openedMenu ? "left-0" : "left-[-100%]"
           }`}
           ref={ref}
@@ -108,37 +108,37 @@ export const Header = () => {
             src={"/imgs/logo.png"}
             width={60}
             height={68}
-            className="self-center"
+            className="self-center mb-3"
             alt="Logo Btc é aqui"
           />
 
           <Link
             href={"/"}
-            className="text-base border-b-[1px] border-primary pb-[2px] w-full"
+            className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
           >
             Pontos
           </Link>
           <Link
             href={"/"}
-            className="text-base border-b-[1px] border-primary pb-[2px] w-full"
+            className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
           >
             Turismo
           </Link>
           <Link
             href={"/"}
-            className="text-base border-b-[1px] border-primary pb-[2px] w-full"
+            className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
           >
             Doações
           </Link>
           <Link
             href={"/"}
-            className="text-base border-b-[1px] border-primary pb-[2px] w-full"
+            className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
           >
             Aprender +
           </Link>
           <Link
             href={"/"}
-            className="text-base border-b-[1px] border-primary pb-[2px] w-full"
+            className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
           >
             Contato
           </Link>

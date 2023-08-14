@@ -3,8 +3,8 @@ import { SVGProps } from "react";
 export function IconMenu({ ...props }: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      clip-rule="evenodd"
-      fill-rule="evenodd"
+      clipRule="evenodd"
+      fillRule="evenodd"
       strokeLinejoin="round"
       strokeMiterlimit="2"
       viewBox="0 0 24 24"
