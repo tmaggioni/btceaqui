@@ -7,7 +7,7 @@ export const DiscoverRolante = () => {
   const isMobile = useIsMobile();
   return (
     <>
-      <div className="w-full relative flex flex-col justify-center items-center h-[80vh]">
+      <div className="w-full relative flex flex-col justify-center items-center h-[80vh] max-h-[1080px]">
         <Image
           src={"/imgs/img-cachoeira.png"}
           fill
