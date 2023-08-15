@@ -114,7 +114,7 @@ export default function Pontos() {
       <Breadcrumbs label="Pontos" />
       <div className="container flex flex-col mt-5 gap-5">
         <Title>Lista de serviços</Title>
-        <div className="w-[100%] mt-5">
+        {/* <div className="w-[100%] mt-5">
           <iframe
             id="btcmap"
             className="w-full h-[400px]"
@@ -122,7 +122,7 @@ export default function Pontos() {
             allow="geolocation"
             src="https://btcmap.org/map?community=bitcoin-e-aqui"
           />
-        </div>
+        </div> */}
 
         <div className="w-[100%] flex flex-wrap justify-center  gap-3">
           {mockCategories.map((item) => (

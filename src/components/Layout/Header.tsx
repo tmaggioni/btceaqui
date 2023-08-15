@@ -15,7 +15,7 @@ export const Header = () => {
   return (
     <>
       <div className="w-full flex shadow-md h-[129px] bg-white relative z-10 lg:hidden">
-        <div className="container flex items-center justify-center gap-11">
+        <div className="container flex items-center justify-center gap-11 relative">
           <div className="flex gap-11 justify-between">
             <Link
               href={"/pontos"}
@@ -51,6 +51,12 @@ export const Header = () => {
               href={"/"}
               className="bg-white p-1 hover:bg-primary rounded-md text-base  hover:text-white transition-all hover:font-bold"
             >
+              Eventos
+            </Link>
+            <Link
+              href={"/"}
+              className="bg-white p-1 hover:bg-primary rounded-md text-base  hover:text-white transition-all hover:font-bold"
+            >
               Aprender +
             </Link>
             <Link
@@ -59,7 +65,7 @@ export const Header = () => {
             >
               Contato
             </Link>
-            <div className="flex items-center gap-3 relative">
+            <div className="flex items-center gap-3 absolute right-0 top-[50%] translate-y-[-50%]">
               <div
                 className="cursor-pointer"
                 onClick={() => setOpenedLanguage(!openedLanguage)}
