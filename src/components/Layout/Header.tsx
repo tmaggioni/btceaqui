@@ -95,7 +95,7 @@ export const Header = () => {
 
       <div
         className={`w-full h-[100vh] bg-black bg-opacity-80 fixed transition-all ${
-          openedMenu ? "z-50 opacity-100" : "opacity-0"
+          openedMenu ? "z-50 opacity-100" : "opacity-0 z-[-1]"
         }`}
       >
         <div
