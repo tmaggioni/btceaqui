@@ -17,7 +17,7 @@ export const Header = () => {
         <div className="container flex items-center justify-center gap-11">
           <div className="flex gap-11 justify-between">
             <Link
-              href={"/"}
+              href={"/pontos"}
               className="bg-white p-1 hover:bg-primary rounded-md text-base hover:text-white transition-all hover:font-bold"
             >
               Pontos
@@ -113,7 +113,7 @@ export const Header = () => {
           />
 
           <Link
-            href={"/"}
+            href={"/pontos"}
             className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
           >
             Pontos
