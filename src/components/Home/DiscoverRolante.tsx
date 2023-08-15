@@ -2,12 +2,13 @@ import Image from "next/image";
 import { Button } from "../Button";
 import { Parallax } from "react-scroll-parallax";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { TitleFooter } from "../TitleFooter";
 
 export const DiscoverRolante = () => {
   const isMobile = useIsMobile();
   return (
     <>
-      <div className="w-full relative flex flex-col justify-center items-center h-[80vh] max-h-[1080px]">
+      <div className="w-full relative flex flex-col justify-center items-center h-[80vh] lg:h-auto lg:pt-6 lg:pb-6">
         <Image
           src={"/imgs/img-cachoeira.png"}
           fill
@@ -24,7 +25,22 @@ export const DiscoverRolante = () => {
           <Button label="Confira os pontos!" link={"/"} />
         </div>
       </div>
-      <div className="container flex items-center justify-center gap-5 mt-[-50px]  lg:flex-col relative z-20">
+      <div className="absolute top-[40%] left-0 flex delay-300 animate-pulse cursor-pointer lg:relative lg:animate-none lg:top-0 lg:m-auto">
+        <div className="bg-primary w-[36px] h-[203px]">
+          <span
+            className={`text-[30px] uppercase block font-bold drop-shadow-title rotate-[-90deg] relative top-[130px]`}
+          >
+            FESTIVAL
+          </span>
+        </div>
+        <Image
+          src={"/imgs/springfestival.png"}
+          width={299}
+          height={203}
+          alt="Clique para acessar informações sobre o Spring Festival"
+        />
+      </div>
+      <div className="container flex items-center justify-center gap-5 mt-[-50px]  lg:flex-col relative z-20 lg:mt-[15px]">
         <div className="flex flex-col gap-3">
           <h2 className="text-4xl font-bold lg:text-2xl">
             Descubra Rolante e região
@@ -65,7 +81,7 @@ export const DiscoverRolante = () => {
             </div>
           </Parallax>
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 lg:mt-3">
           <p className="text-base max-w-[500px]">
             Neste paraíso, os amantes do vinho podem saborear a autêntica
             produção local em nossas vinícolas, enquanto apreciam o atendimento
@@ -107,7 +123,7 @@ export const DiscoverRolante = () => {
           <Parallax speed={-8} disabled={isMobile}>
             <div className="relative w-full h-[392px] lg:h-[250px]">
               <Image
-                src={"/imgs/foto-esq.png"}
+                src={"/imgs/foto2-esq.png"}
                 alt="Background"
                 fill
                 objectFit="contain"

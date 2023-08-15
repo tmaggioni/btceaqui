@@ -6,6 +6,7 @@ import useOutsideClick from "@/hooks/useOutsideClick";
 
 export const Header = () => {
   const [openedMenu, setOpenedMenu] = useState(false);
+  const [openedLanguage, setOpenedLanguage] = useState(false);
   const handleClickOutside = () => {
     setOpenedMenu(false);
   };
@@ -36,12 +37,14 @@ export const Header = () => {
             </Link>
           </div>
 
-          <Image
-            src={"/imgs/logo.png"}
-            width={89}
-            height={102}
-            alt="Logo Btc é aqui"
-          />
+          <Link href={"/"}>
+            <Image
+              src={"/imgs/logo.png"}
+              width={89}
+              height={102}
+              alt="Logo Btc é aqui"
+            />
+          </Link>
 
           <div className="flex gap-11 justify-between">
             <Link
@@ -56,8 +59,26 @@ export const Header = () => {
             >
               Contato
             </Link>
-            <div className="flex items-center gap-3">
-              <a href="">
+            <div className="flex items-center gap-3 relative">
+              <div
+                className="cursor-pointer"
+                onClick={() => setOpenedLanguage(!openedLanguage)}
+              >
+                <Image
+                  src={"/imgs/br.png"}
+                  width={25}
+                  height={17}
+                  alt="Trocar idioma"
+                />
+              </div>
+              <div
+                className={`absolute top-9 right-0 bg-white rounded shadow p-1 ${
+                  openedLanguage ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <div id="google_translate_element" />
+              </div>
+              {/* <a href="">
                 <Image
                   width={25}
                   height={25}
@@ -72,14 +93,10 @@ export const Header = () => {
                   src={"/imgs/insta.png"}
                   alt="Instagram link"
                 />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
-
-        {/* <div className="absolute right-0 top-0 z-10">
-        <div id="google_translate_element" />
-      </div> */}
       </div>
       <div className="hidden bg-white shadow-md lg:flex items-center p-1 w-full  justify-between relative z-20">
         <IconMenu onClick={() => setOpenedMenu(!openedMenu)} />
