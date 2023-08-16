@@ -7,7 +7,6 @@ import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
 import { getIsSsrMobile } from "@/hooks/getSsrMobile";
-import { useIsMobile } from "@/hooks/useIsMobile";
 import { GetServerSidePropsContext } from "next";
 
 export default function Home() {

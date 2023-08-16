@@ -1,9 +1,12 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { IconWhats } from "@/components/Icons/";
 import { IconInsta } from "@/components/Icons/IconInsta";
+import { IconMenu } from "@/components/Icons/IconMenu";
 import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
+
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { createClient } from "@/prismicio";
 import { InferGetServerSidePropsType, NextPage } from "next";
 import { useMemo, useState } from "react";
@@ -14,6 +17,8 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
 }) => {
   const [selecteds, setSelecteds] = useState<string[]>([]);
   const [search, setSearch] = useState("");
+  const isMobile = useIsMobile();
+  const [showCategories, setShowCategories] = useState(false);
 
   const handleSelecteds = (categorie: string) => {
     if (!selecteds.includes(categorie)) {
@@ -35,7 +40,10 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
     return search.length > 0
       ? locals.filter(
           (item) =>
-            item.data.nome?.includes(search) || item.data.tipo?.includes(search)
+            item.data.nome
+              ?.toLowerCase()
+              .includes(search.toLocaleLowerCase()) ||
+            item.data.tipo?.toLowerCase().includes(search.toLocaleLowerCase())
         )
       : filteredLocals;
   }, [search, filteredLocals, locals]);
@@ -47,30 +55,45 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
       <div className="container flex flex-col mt-5 gap-5">
         <Title>Lista de serviços</Title>
 
-        <div className="w-[100%] flex flex-wrap justify-center  gap-3">
-          {categories.map((item) => (
-            <div
-              key={item.data.nome}
-              onClick={() => handleSelecteds(String(item.uid))}
-              className={`shadow p-2 rounded-lg transition-all flex cursor-pointer ${
-                selecteds.includes(String(item.uid))
-                  ? "bg-primary text-white"
-                  : "bg-white"
-              }`}
-            >
-              {item.data.nome}
-            </div>
-          ))}
+        <div className="hidden lg:flex items-center gap-1 text-lg justify-center">
+          <IconMenu
+            width={"40px"}
+            height={"40px"}
+            onClick={() => setShowCategories(!showCategories)}
+          />
+          <span onClick={() => setShowCategories(!showCategories)}>
+            Filtros
+          </span>
         </div>
+        {(showCategories || !isMobile) && (
+          <div className="w-[100%] flex flex-wrap justify-center gap-3">
+            {categories.map((item) => (
+              <div
+                key={item.data.nome}
+                onClick={() => handleSelecteds(String(item.uid))}
+                className={`shadow p-2 rounded-lg transition-all flex cursor-pointer ${
+                  selecteds.includes(String(item.uid))
+                    ? "bg-primary text-white"
+                    : "bg-white"
+                }`}
+              >
+                {item.data.nome}
+              </div>
+            ))}
+          </div>
+        )}
 
-        <div className="container">
+        <div className="container flex  lg:gap-2 justify-between items-end lg:items-center">
           <input
             type="text"
             placeholder="Pesquise aqui"
-            className="shadow p-2 rounded-lg"
+            className="shadow-sm border-[#ccc] border-[1px] p-2 rounded-lg"
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
+          <div className="text-sm font-bold">
+            {locals.length} estabelecimentos
+          </div>
         </div>
         <div className="grid grid-cols-5 gap-3 lg:grid-cols-2 pt-10 border-t-4 border-primary">
           {searchedLocals.map((item) => (
@@ -84,7 +107,7 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
               <span className="text-[12px] ">{item.data.tipo} </span>
 
               {(!!item.data.instagram || !!item.data.telefone) && (
-                <div className="w-full bg-gray-100 p-2 rounded-md flex flex-col gap-1 bg-opacity-40">
+                <div className="w-full bg-gray-100 p-2 rounded-md flex self-end flex-col gap-1 bg-opacity-40">
                   {!!item.data.telefone && (
                     <span className="flex items-center text-[13px] gap-1 font-medium">
                       <IconWhats width={15} height={15} />
