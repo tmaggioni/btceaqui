@@ -1,0 +1,16 @@
+{
+  "id": "categoria",
+  "label": "Categoria",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "nome": {
+        "type": "Text",
+        "config": { "label": "nome", "placeholder": "" }
+      }
+    }
+  }
+}

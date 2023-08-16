@@ -1,0 +1,36 @@
+{
+  "id": "estabelecimentos",
+  "label": "Estabelecimentos",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "nome": {
+        "type": "Text",
+        "config": { "label": "nome", "placeholder": "" }
+      },
+      "categoria": {
+        "type": "Link",
+        "config": {
+          "label": "categoria",
+          "select": "document",
+          "customtypes": ["categoria"]
+        }
+      },
+      "tipo": {
+        "type": "Text",
+        "config": { "label": "Tipo", "placeholder": "" }
+      },
+      "telefone": {
+        "type": "Text",
+        "config": { "label": "telefone", "placeholder": "" }
+      },
+      "instagram": {
+        "type": "Text",
+        "config": { "label": "instagram", "placeholder": "" }
+      }
+    }
+  }
+}
