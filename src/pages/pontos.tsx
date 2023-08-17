@@ -1,5 +1,6 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { IconWhats } from "@/components/Icons/";
+import { IconClose } from "@/components/Icons/IconClose";
 import { IconFilter } from "@/components/Icons/IconFilter";
 import { IconInsta } from "@/components/Icons/IconInsta";
 
@@ -90,39 +91,54 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
             {locals.length} estabelecimentos
           </div>
         </div>
-        <div className="grid grid-cols-5 gap-3 lg:grid-cols-1 pt-10 border-t-4 border-primary">
+        <div className="grid grid-cols-3 gap-3 lg:grid-cols-1 pt-10 border-t-4 border-primary">
           {searchedLocals.map((item) => (
             <div
               key={item.data.nome}
-              className="bg-white transition-all shadow-lg rounded-md p-3 flex items-start flex-col"
+              className="bg-white transition-all shadow-lg rounded-md p-6 flex items-start flex-col"
             >
-              <span className="font-bold  border-gray-100 border-b-[1px]">
+              <span className="font-bold text-lg border-gray-100 border-b-[1px]">
                 {item.data.nome}
               </span>
-              <span className="text-[12px] ">{item.data.tipo} </span>
+              <span className="text-base">{item.data.tipo} </span>
 
               {(!!item.data.instagram || !!item.data.telefone) && (
-                <div className="w-full bg-gray-100 p-2 rounded-md flex self-end flex-col gap-1 bg-opacity-40">
+                <div className="w-full bg-gray-100 p-2 rounded-md flex self-end flex-col gap-1 bg-opacity-40 mt-2">
                   {!!item.data.telefone && (
-                    <span className="flex items-center text-[13px] gap-1 font-medium">
-                      <IconWhats width={15} height={15} />
+                    <a
+                      href={item.data.telefone}
+                      target="_blank"
+                      className="flex items-center text-base gap-1 font-medium"
+                    >
+                      <IconWhats
+                        className="fill-[#25d366]"
+                        width={15}
+                        height={15}
+                      />
                       {item.data.telefone}
-                    </span>
+                    </a>
                   )}
                   {!!item.data.instagram && (
-                    <span className="flex items-center text-[13px] gap-1 font-medium">
-                      <IconInsta width={15} height={15} />
-                      <a href={item.data.instagram} target="_blank">
-                        {item.data.instagram.split("/")[3]}
-                      </a>
-                    </span>
+                    <a
+                      href={item.data.instagram}
+                      target="_blank"
+                      className="flex items-center text-base gap-1 font-medium"
+                    >
+                      <IconInsta
+                        className="fill-[#E1306C]"
+                        width={15}
+                        height={15}
+                      />
+
+                      {item.data.instagram.split("/")[3]}
+                    </a>
                   )}
                 </div>
               )}
             </div>
           ))}
         </div>
-        <div className="w-[100%] mt-5">
+        <div className="w-[100%] mt-5 lg:hidden">
           <iframe
             id="btcmap"
             className="w-full h-[400px]"
@@ -132,11 +148,17 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
           />
         </div>
       </div>
-      <div className="fixed hidden lg:flex bg-primary w-[45px] h-[45px] p-2 bottom-3 right-3 shadow rounded-full ">
-        <IconFilter
-          className="fill-white"
-          onClick={() => setShowCategories(!showCategories)}
-        />
+      <div className="fixed hidden lg:flex z-[51] bg-primary w-[45px] h-[45px]  items-center justify-center p-2 bottom-3 right-3 shadow rounded-full ">
+        {showCategories ? (
+          <IconClose className={`fill-white`} />
+        ) : (
+          <IconFilter
+            className={`fill-white rotate-90`}
+            onClick={() => {
+              setShowCategories((prev) => !prev);
+            }}
+          />
+        )}
       </div>
       <div
         className={`w-full h-[100vh] bg-black bg-opacity-80 fixed transition-all ${
