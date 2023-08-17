@@ -1,12 +1,14 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { IconWhats } from "@/components/Icons/";
+import { IconFilter } from "@/components/Icons/IconFilter";
 import { IconInsta } from "@/components/Icons/IconInsta";
-import { IconMenu } from "@/components/Icons/IconMenu";
+
 import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
 
 import { useIsMobile } from "@/hooks/useIsMobile";
+import useOutsideClick from "@/hooks/useOutsideClick";
 import { createClient } from "@/prismicio";
 import { InferGetServerSidePropsType, NextPage } from "next";
 import { useMemo, useState } from "react";
@@ -48,6 +50,11 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
       : filteredLocals;
   }, [search, filteredLocals, locals]);
 
+  const handleClickOutside = () => {
+    setShowCategories(false);
+  };
+  const ref = useOutsideClick<HTMLDivElement>(handleClickOutside);
+
   return (
     <>
       <Header />
@@ -55,33 +62,21 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
       <div className="container flex flex-col mt-5 gap-5">
         <Title>Lista de serviços</Title>
 
-        <div className="hidden lg:flex items-center gap-1 text-lg justify-center">
-          <IconMenu
-            width={"40px"}
-            height={"40px"}
-            onClick={() => setShowCategories(!showCategories)}
-          />
-          <span onClick={() => setShowCategories(!showCategories)}>
-            Filtros
-          </span>
+        <div className="w-[100%] flex flex-wrap justify-center gap-3 lg:hidden">
+          {categories.map((item) => (
+            <div
+              key={item.data.nome}
+              onClick={() => handleSelecteds(String(item.uid))}
+              className={`shadow p-2 rounded-lg transition-all flex cursor-pointer ${
+                selecteds.includes(String(item.uid))
+                  ? "bg-primary text-white"
+                  : "bg-white"
+              }`}
+            >
+              {item.data.nome}
+            </div>
+          ))}
         </div>
-        {(showCategories || !isMobile) && (
-          <div className="w-[100%] flex flex-wrap justify-center gap-3">
-            {categories.map((item) => (
-              <div
-                key={item.data.nome}
-                onClick={() => handleSelecteds(String(item.uid))}
-                className={`shadow p-2 rounded-lg transition-all flex cursor-pointer ${
-                  selecteds.includes(String(item.uid))
-                    ? "bg-primary text-white"
-                    : "bg-white"
-                }`}
-              >
-                {item.data.nome}
-              </div>
-            ))}
-          </div>
-        )}
 
         <div className="container flex  lg:gap-2 justify-between items-end lg:items-center">
           <input
@@ -95,7 +90,7 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
             {locals.length} estabelecimentos
           </div>
         </div>
-        <div className="grid grid-cols-5 gap-3 lg:grid-cols-2 pt-10 border-t-4 border-primary">
+        <div className="grid grid-cols-5 gap-3 lg:grid-cols-1 pt-10 border-t-4 border-primary">
           {searchedLocals.map((item) => (
             <div
               key={item.data.nome}
@@ -135,6 +130,41 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
             allow="geolocation"
             src="https://btcmap.org/map?community=bitcoin-e-aqui"
           />
+        </div>
+      </div>
+      <div className="fixed hidden lg:flex bg-primary w-[45px] h-[45px] p-2 bottom-3 right-3 shadow rounded-full ">
+        <IconFilter
+          className="fill-white"
+          onClick={() => setShowCategories(!showCategories)}
+        />
+      </div>
+      <div
+        className={`w-full h-[100vh] bg-black bg-opacity-80 fixed transition-all ${
+          showCategories ? "z-50 opacity-100" : "opacity-0 z-[-1]"
+        }`}
+      >
+        <div
+          className={`w-[60%] h-full overflow-auto bg-white transition-all delay-100 duration-200 p-3 relative ${
+            showCategories ? "left-0" : "left-[-100%]"
+          }`}
+          ref={ref}
+        >
+          <Title size="small">Categorias</Title>
+          <div className="flex flex-col  gap-1 mt-4">
+            {categories.map((item) => (
+              <div
+                key={item.data.nome}
+                onClick={() => handleSelecteds(String(item.uid))}
+                className={`shadow p-2 rounded-lg transition-all flex cursor-pointer ${
+                  selecteds.includes(String(item.uid))
+                    ? "bg-primary text-white"
+                    : "bg-white"
+                }`}
+              >
+                {item.data.nome}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <Footer />
