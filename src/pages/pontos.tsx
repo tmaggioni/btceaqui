@@ -1,7 +1,6 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { IconWhats } from "@/components/Icons/";
 import { IconCheck } from "@/components/Icons/IconCheck";
-import { IconClose } from "@/components/Icons/IconClose";
 import { IconFilter } from "@/components/Icons/IconFilter";
 import { IconInsta } from "@/components/Icons/IconInsta";
 
@@ -15,6 +14,12 @@ import { createClient } from "@/prismicio";
 import { InferGetServerSidePropsType, NextPage } from "next";
 import { useMemo, useState } from "react";
 
+function phoneMask(phone: string) {
+  return phone
+    .replace(/\D/g, "")
+    .replace(/(^\d{2})(\d)/, "($1) $2")
+    .replace(/(\d{4,5})(\d{4}$)/, "$1-$2");
+}
 const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
   categories,
   locals,
@@ -112,7 +117,7 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
               <span className="text-base">{item.data.tipo} </span>
 
               {(!!item.data.instagram || !!item.data.telefone) && (
-                <div className="w-full bg-gray-100 p-2 rounded-md flex self-end flex-col gap-1 bg-opacity-40 mt-2">
+                <div className="w-full bg-gray-100 p-2 rounded-md flex self-end flex-col gap-2 bg-opacity-40 mt-2">
                   {!!item.data.telefone && (
                     <a
                       href={`https://wa.me//55${item.data.telefone}`}
@@ -121,10 +126,10 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
                     >
                       <IconWhats
                         className="fill-[#25d366]"
-                        width={15}
-                        height={15}
+                        width={20}
+                        height={20}
                       />
-                      {item.data.telefone}
+                      {phoneMask(item.data.telefone)}
                     </a>
                   )}
                   {!!item.data.instagram && (
@@ -135,8 +140,8 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
                     >
                       <IconInsta
                         className="fill-[#E1306C]"
-                        width={15}
-                        height={15}
+                        width={20}
+                        height={20}
                       />
 
                       {item.data.instagram.split("/")[3]}
