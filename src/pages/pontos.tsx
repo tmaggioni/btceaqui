@@ -170,6 +170,7 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
           <IconFilter
             className={`fill-white rotate-90`}
             onClick={() => {
+              setSearch("");
               setShowCategories((prev) => !prev);
             }}
           />
