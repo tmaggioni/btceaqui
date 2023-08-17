@@ -115,7 +115,7 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
                 <div className="w-full bg-gray-100 p-2 rounded-md flex self-end flex-col gap-1 bg-opacity-40 mt-2">
                   {!!item.data.telefone && (
                     <a
-                      href={item.data.telefone}
+                      href={`https://wa.me//55${item.data.telefone}`}
                       target="_blank"
                       className="flex items-center text-base gap-1 font-medium"
                     >
