@@ -22,7 +22,11 @@ export const DiscoverRolante = () => {
             </span>
             <span>Aqui já é possível</span>
           </h2>
-          <Button label="Confira os pontos!" link={"/pontos"} />
+          <Button
+            label="Confira os pontos!"
+            link={"/pontos"}
+            size={isMobile ? "medium" : "big"}
+          />
         </div>
       </div>
       <div className="absolute top-[40%] left-0 flex delay-300 animate-pulse cursor-pointer lg:relative lg:animate-none lg:top-0 lg:m-auto">

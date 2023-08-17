@@ -54,8 +54,16 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
 
   const handleClickOutside = () => {
     setShowCategories(false);
+    scrollToTop();
   };
   const ref = useOutsideClick<HTMLDivElement>(handleClickOutside);
+
+  const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
+
+  function scrollToTop() {
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   return (
     <>
@@ -149,9 +157,15 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
           />
         </div>
       </div>
-      <div className="fixed hidden lg:flex z-[51] bg-primary w-[45px] h-[45px]  items-center justify-center p-2 bottom-3 right-3 shadow rounded-full ">
+      <div
+        className={`fixed hidden lg:flex z-[51] bg-primary  h-[45px] items-center justify-center p-2 bottom-3 right-3 shadow  ${
+          showCategories ? "w-auto rounded" : "w-[45px] rounded-full"
+        }`}
+      >
         {showCategories ? (
-          <IconClose className={`fill-white`} />
+          <span className="font-normal text-white text-sm">
+            Aplicar Filtros
+          </span>
         ) : (
           <IconFilter
             className={`fill-white rotate-90`}

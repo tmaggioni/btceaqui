@@ -105,14 +105,18 @@ export const Header = () => {
         </div>
       </div>
       <div className="hidden bg-white shadow-md lg:flex items-center p-1 w-full  justify-between relative z-20">
-        <IconMenu onClick={() => setOpenedMenu(!openedMenu)} />
-        <Image
-          src={"/imgs/logo.png"}
-          width={60}
-          height={68}
-          alt="Logo Btc é aqui"
+        <IconMenu
+          onClick={() => setOpenedMenu(!openedMenu)}
+          className="rotate-180"
         />
-
+        <Link href={"/"}>
+          <Image
+            src={"/imgs/logo.png"}
+            width={60}
+            height={68}
+            alt="Logo Btc é aqui"
+          />
+        </Link>
         <IconMenu onClick={() => setOpenedMenu(!openedMenu)} />
       </div>
 
