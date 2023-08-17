@@ -1,5 +1,6 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { IconWhats } from "@/components/Icons/";
+import { IconCheck } from "@/components/Icons/IconCheck";
 import { IconClose } from "@/components/Icons/IconClose";
 import { IconFilter } from "@/components/Icons/IconFilter";
 import { IconInsta } from "@/components/Icons/IconInsta";
@@ -79,11 +80,11 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
           ))}
         </div>
 
-        <div className="container flex  lg:gap-2 justify-between items-end lg:items-center">
+        <div className="container flex  lg:gap-2 justify-between items-end  lg:flex-col">
           <input
             type="text"
             placeholder="Pesquise aqui"
-            className="shadow-sm border-[#ccc] border-[1px] p-2 rounded-lg"
+            className="shadow-sm border-[#ccc] border-[1px] p-2 rounded-lg lg:w-full"
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
@@ -177,12 +178,15 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
               <div
                 key={item.data.nome}
                 onClick={() => handleSelecteds(String(item.uid))}
-                className={`shadow p-2 rounded-lg transition-all flex cursor-pointer ${
+                className={`shadow p-2 rounded-lg transition-all flex cursor-pointer items-center gap-2 ${
                   selecteds.includes(String(item.uid))
                     ? "bg-primary text-white"
                     : "bg-white"
                 }`}
               >
+                {selecteds.includes(String(item.uid)) && (
+                  <IconCheck className="fill-white" width={20} height={20} />
+                )}
                 {item.data.nome}
               </div>
             ))}
