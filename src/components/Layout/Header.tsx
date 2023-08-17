@@ -18,10 +18,10 @@ export const Header = () => {
         <div className="container flex items-center justify-center gap-11 relative">
           <div className="flex gap-11 justify-between">
             <Link
-              href={"/pontos"}
+              href={"/estabelecimentos"}
               className="bg-white p-1 hover:bg-primary rounded-md text-base hover:text-white transition-all hover:font-bold"
             >
-              Pontos
+              Estabelecimentos
             </Link>
             <Link
               href={"/"}
@@ -46,7 +46,7 @@ export const Header = () => {
             />
           </Link>
 
-          <div className="flex gap-11 justify-between">
+          <div className="flex gap-11 justify-between min-w-[360px]">
             <Link
               href={"/"}
               className="bg-white p-1 hover:bg-primary rounded-md text-base  hover:text-white transition-all hover:font-bold"
@@ -84,22 +84,6 @@ export const Header = () => {
               >
                 <div id="google_translate_element" />
               </div>
-              {/* <a href="">
-                <Image
-                  width={25}
-                  height={25}
-                  src={"/imgs/whats.png"}
-                  alt="Whatsapp link"
-                />
-              </a>
-              <a href="">
-                <Image
-                  width={25}
-                  height={25}
-                  src={"/imgs/insta.png"}
-                  alt="Instagram link"
-                />
-              </a> */}
             </div>
           </div>
         </div>
@@ -140,10 +124,10 @@ export const Header = () => {
           />
 
           <Link
-            href={"/pontos"}
+            href={"/estabelecimentos"}
             className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
           >
-            Pontos
+            Estabelecimentos
           </Link>
           <Link
             href={"/"}

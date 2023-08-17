@@ -8,7 +8,6 @@ import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
 
-import { useIsMobile } from "@/hooks/useIsMobile";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import { createClient } from "@/prismicio";
 import { InferGetServerSidePropsType, NextPage } from "next";
@@ -20,20 +19,22 @@ function phoneMask(phone: string) {
     .replace(/(^\d{2})(\d)/, "($1) $2")
     .replace(/(\d{4,5})(\d{4}$)/, "$1-$2");
 }
-const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
-  categories,
-  locals,
-}) => {
+const Estabelecimentos: NextPage<
+  InferGetServerSidePropsType<typeof getStaticProps>
+> = ({ categories, locals }) => {
   const [selecteds, setSelecteds] = useState<string[]>([]);
+  const [selectedsToShow, setSelectedsToShow] = useState<string[]>([]);
   const [search, setSearch] = useState("");
-  const isMobile = useIsMobile();
+
   const [showCategories, setShowCategories] = useState(false);
 
-  const handleSelecteds = (categorie: string) => {
+  const handleSelecteds = (categorie: string, name: string) => {
     if (!selecteds.includes(categorie)) {
       setSelecteds((prev) => [...prev, categorie]);
+      setSelectedsToShow((prev) => [...prev, name]);
     } else {
       setSelecteds((prev) => prev.filter((item) => item !== categorie));
+      setSelectedsToShow((prev) => prev.filter((item) => item !== name));
     }
   };
 
@@ -49,10 +50,8 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
     return search.length > 0
       ? locals.filter(
           (item) =>
-            item.data.nome
-              ?.toLowerCase()
-              .includes(search.toLocaleLowerCase()) ||
-            item.data.tipo?.toLowerCase().includes(search.toLocaleLowerCase())
+            item.data.nome?.toLowerCase().includes(search) ||
+            item.data.tipo?.toLowerCase().includes(search)
         )
       : filteredLocals;
   }, [search, filteredLocals, locals]);
@@ -76,12 +75,13 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
       <Breadcrumbs label="Pontos" />
       <div className="container flex flex-col mt-5 gap-5">
         <Title>Lista de serviços</Title>
-
         <div className="w-[100%] flex flex-wrap justify-center gap-3 lg:hidden">
           {categories.map((item) => (
             <div
               key={item.data.nome}
-              onClick={() => handleSelecteds(String(item.uid))}
+              onClick={() =>
+                handleSelecteds(String(item.uid), String(item.data.nome))
+              }
               className={`shadow p-2 rounded-lg transition-all flex cursor-pointer ${
                 selecteds.includes(String(item.uid))
                   ? "bg-primary text-white"
@@ -92,19 +92,31 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
             </div>
           ))}
         </div>
-
         <div className="container flex  lg:gap-2 justify-between items-end  lg:flex-col">
           <input
             type="text"
             placeholder="Pesquise aqui"
             className="shadow-sm border-[#ccc] border-[1px] p-2 rounded-lg lg:w-full"
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSelectedsToShow([]);
+              setSelecteds([]);
+              setSearch(e.target.value.toLowerCase());
+            }}
             value={search}
           />
           <div className="text-sm font-bold">
             {locals.length} estabelecimentos
           </div>
         </div>
+        {selectedsToShow.length > 0 && (
+          <div className="hidden lg:flex text-xs justify-center flex-col">
+            <span>Selecionados:</span>
+            <span className="font-bold text-sm">
+              {selectedsToShow.join(" , ")}
+            </span>
+          </div>
+        )}
+
         <div className="grid grid-cols-3 gap-3 lg:grid-cols-1 pt-10 border-t-4 border-primary">
           {searchedLocals.map((item) => (
             <div
@@ -175,7 +187,6 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
           <IconFilter
             className={`fill-white rotate-90`}
             onClick={() => {
-              setSearch("");
               setShowCategories((prev) => !prev);
             }}
           />
@@ -197,7 +208,10 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
             {categories.map((item) => (
               <div
                 key={item.data.nome}
-                onClick={() => handleSelecteds(String(item.uid))}
+                onClick={() => {
+                  handleSelecteds(String(item.uid), String(item.data.nome));
+                  setSearch("");
+                }}
                 className={`shadow p-2 rounded-lg transition-all flex cursor-pointer items-center gap-2 ${
                   selecteds.includes(String(item.uid))
                     ? "bg-primary text-white"
@@ -218,7 +232,7 @@ const Pontos: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
   );
 };
 
-export default Pontos;
+export default Estabelecimentos;
 
 export const getStaticProps = async () => {
   const client = createClient();

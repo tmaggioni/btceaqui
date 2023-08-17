@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Button } from "../Button";
 import { Parallax } from "react-scroll-parallax";
 import { useIsMobile } from "@/hooks/useIsMobile";
-import { TitleFooter } from "../TitleFooter";
 
 export const DiscoverRolante = () => {
   const isMobile = useIsMobile();
@@ -23,8 +22,8 @@ export const DiscoverRolante = () => {
             <span>Aqui já é possível</span>
           </h2>
           <Button
-            label="Confira os pontos!"
-            link={"/pontos"}
+            label="Veja os estabelecimentos!"
+            link={"/estabelecimentos"}
             size={isMobile ? "medium" : "big"}
           />
         </div>

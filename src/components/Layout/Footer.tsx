@@ -19,10 +19,10 @@ export const Footer = () => {
           <ul className="list-none flex flex-col gap-1">
             <li>
               <Link
-                href="/pontos"
+                href="/estabelecimentos"
                 className=" hover:text-primary text-[#383838] text-base transition-all hover:font-bold"
               >
-                Pontos
+                Estabelecimentos
               </Link>
             </li>
             <li>
