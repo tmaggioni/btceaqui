@@ -74,7 +74,7 @@ export const Header = () => {
 
           <div className="flex gap-11 justify-between min-w-[360px]">
             <Link
-              href={"/"}
+              href={"/eventos"}
               className="bg-white p-1 hover:bg-primary rounded-md text-base  hover:text-white transition-all hover:font-bold"
             >
               Eventos

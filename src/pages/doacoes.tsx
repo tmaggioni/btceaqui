@@ -35,7 +35,7 @@ const Doacoes: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
         <meta property="og:description" content="Bitcoin é aqui - Doações" />
       </Head>
       <Header />
-      <Breadcrumbs label="Doações" />
+      <Breadcrumbs labels={[{ label: "Doações", path: "" }]} />
       <Container>
         <Title>Doações</Title>
         {/* <div className="text-lg font-bold">{learn.data.titulo}</div> */}

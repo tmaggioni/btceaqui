@@ -27,6 +27,14 @@ export const Footer = () => {
             </li>
             <li>
               <Link
+                href="/eventos"
+                className=" hover:text-primary text-[#383838] text-base transition-all hover:font-bold"
+              >
+                Eventos
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/"
                 className=" hover:text-primary text-[#383838] text-base transition-all hover:font-bold"
               >

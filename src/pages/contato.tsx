@@ -42,7 +42,7 @@ const Contato: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
         <meta property="og:description" content="Bitcoin é aqui - Contato" />
       </Head>
       <Header />
-      <Breadcrumbs label="Contato" />
+      <Breadcrumbs labels={[{ label: "Contato", path: "" }]} />
       <Container>
         <Title>Contato</Title>
         <div className="flex flex-col gap-2">

@@ -289,6 +289,17 @@ export type EstabelecimentosDocument<Lang extends string = string> =
  */
 interface EventosDocumentData {
   /**
+   * Data field in *Eventos*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventos.data
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  data: prismic.DateField;
+
+  /**
    * Título field in *Eventos*
    *
    * - **Field Type**: Text

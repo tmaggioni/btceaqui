@@ -41,7 +41,7 @@ const ComoChegar: NextPage<
         />
       </Head>
       <Header />
-      <Breadcrumbs label="Como chegar" />
+      <Breadcrumbs labels={[{ label: "Como chegar", path: "" }]} />
       <Container>
         <Title>Como chegar</Title>
         <div>

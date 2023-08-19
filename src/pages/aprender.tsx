@@ -4,7 +4,6 @@ import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
 import { createClient } from "@/prismicio";
-import { RTLinkNode } from "@prismicio/client";
 import { JSXMapSerializer, PrismicRichText } from "@prismicio/react";
 import { InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
@@ -39,7 +38,7 @@ const Aprender: NextPage<
         <meta property="og:description" content="Aprenda sobre Bitcoin" />
       </Head>
       <Header />
-      <Breadcrumbs label="Aprender +" />
+      <Breadcrumbs labels={[{ label: "Aprender +", path: "" }]} />
       <Container>
         <Title>Aprender +</Title>
         <div className="aprender">

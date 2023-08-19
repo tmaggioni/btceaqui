@@ -36,7 +36,7 @@ const Hotelaria: NextPage<
         <meta property="og:description" content="Bitcoin é aqui - Hotelaria" />
       </Head>
       <Header />
-      <Breadcrumbs label="Hotelaria" />
+      <Breadcrumbs labels={[{ label: "Hotelaria", path: "" }]} />
       <Container>
         <Title>Hotelaria</Title>
 

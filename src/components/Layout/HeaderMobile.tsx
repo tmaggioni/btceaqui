@@ -33,6 +33,12 @@ const HeaderMobile = forwardRef<HTMLDivElement, Props>(
             Estabelecimentos
           </Link>
           <Link
+            href={"/eventos"}
+            className="text-base flex items-center gap-1 underline"
+          >
+            Eventos
+          </Link>
+          <Link
             href={"/pontos-turisticos"}
             className="text-base flex items-center gap-1 underline"
           >

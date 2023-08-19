@@ -76,7 +76,7 @@ const Estabelecimentos: NextPage<
   return (
     <>
       <Header />
-      <Breadcrumbs label="Estabelecimentos" />
+      <Breadcrumbs labels={[{ label: "Estabelecimentos", path: "" }]} />
       <Container>
         <Title>Lista de serviços</Title>
         <div className="w-[100%] flex flex-wrap justify-center gap-3 lg:hidden">

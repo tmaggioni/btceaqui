@@ -42,7 +42,7 @@ const PontosTuristicos: NextPage<
         />
       </Head>
       <Header />
-      <Breadcrumbs label="Pontos turísticos" />
+      <Breadcrumbs labels={[{ label: "Pontos turísticos", path: "" }]} />
       <Container>
         <Title>Pontos turísticos</Title>
         <p className="text-base">
