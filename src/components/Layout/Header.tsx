@@ -23,15 +23,40 @@ export const Header = () => {
             >
               Estabelecimentos
             </Link>
-            <Link
-              href={"/"}
-              className="bg-white p-1 hover:bg-primary rounded-md text-base  hover:text-white transition-all hover:font-bold"
-            >
+            <div className="group bg-white p-1 hover:bg-primary rounded-md text-base  hover:text-white transition-all hover:font-bold relative">
               Turismo
-            </Link>
+              <div className="absolute top-2 pt-7 z-10">
+                <div className="bg-white left-0 rounded-md shadow p-3 hidden group-hover:flex flex-col">
+                  <Link
+                    href={"/pontos-turisticos"}
+                    className="font-medium whitespace-nowrap text-black hover:text-primary transition-all"
+                  >
+                    Pontos turísticos
+                  </Link>
+                  <Link
+                    href={"/hotelaria"}
+                    className="font-medium whitespace-nowrap text-black hover:text-primary transition-all"
+                  >
+                    Hotelaria
+                  </Link>
+                  <Link
+                    href={"/como-chegar"}
+                    className="font-medium whitespace-nowrap text-black hover:text-primary transition-all"
+                  >
+                    Como chegar
+                  </Link>
+                  <Link
+                    href={"/whats"}
+                    className="font-medium whitespace-nowrap text-black hover:text-primary transition-all"
+                  >
+                    Chat turismo
+                  </Link>
+                </div>
+              </div>
+            </div>
             <Link
-              href={"/"}
-              className="bg-white p-1 hover:bg-primary rounded-md text-base  hover:text-white transition-all hover:font-bold"
+              href={"/doacoes"}
+              className="z-20 relative bg-white p-1 hover:bg-primary rounded-md text-base  hover:text-white transition-all hover:font-bold"
             >
               Doações
             </Link>
@@ -54,7 +79,7 @@ export const Header = () => {
               Eventos
             </Link>
             <Link
-              href={"/"}
+              href={"/aprender"}
               className="bg-white p-1 hover:bg-primary rounded-md text-base  hover:text-white transition-all hover:font-bold"
             >
               Aprender +
@@ -136,13 +161,13 @@ export const Header = () => {
             Turismo
           </Link>
           <Link
-            href={"/"}
+            href={"/doacoes"}
             className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
           >
             Doações
           </Link>
           <Link
-            href={"/"}
+            href={"/aprender"}
             className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
           >
             Aprender +

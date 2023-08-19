@@ -35,7 +35,7 @@ export const Footer = () => {
             </li>
             <li>
               <Link
-                href="/"
+                href="/doacoes"
                 className=" hover:text-primary text-[#383838] text-base transition-all hover:font-bold"
               >
                 Doações
@@ -43,7 +43,7 @@ export const Footer = () => {
             </li>
             <li>
               <Link
-                href="/"
+                href="/aprender"
                 className=" hover:text-primary text-[#383838] text-base transition-all hover:font-bold"
               >
                 Aprender +

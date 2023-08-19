@@ -5,6 +5,49 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
+ * Content for Aprender documents
+ */
+interface AprenderDocumentData {
+  /**
+   * Título field in *Aprender*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aprender.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField;
+
+  /**
+   * Descrição field in *Aprender*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: aprender.descricao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  descricao: prismic.RichTextField;
+}
+
+/**
+ * Aprender document from Prismic
+ *
+ * - **API ID**: `aprender`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AprenderDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AprenderDocumentData>,
+    "aprender",
+    Lang
+  >;
+
+/**
  * Content for Categoria documents
  */
 interface CategoriaDocumentData {
@@ -33,6 +76,49 @@ export type CategoriaDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
     Simplify<CategoriaDocumentData>,
     "categoria",
+    Lang
+  >;
+
+/**
+ * Content for Doações documents
+ */
+interface DoacoesDocumentData {
+  /**
+   * Título field in *Doações*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: doacoes.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField;
+
+  /**
+   * Descrição field in *Doações*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: doacoes.descricao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  descricao: prismic.RichTextField;
+}
+
+/**
+ * Doações document from Prismic
+ *
+ * - **API ID**: `doacoes`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type DoacoesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<DoacoesDocumentData>,
+    "doacoes",
     Lang
   >;
 
@@ -112,7 +198,77 @@ export type EstabelecimentosDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = CategoriaDocument | EstabelecimentosDocument;
+/**
+ * Content for Eventos documents
+ */
+interface EventosDocumentData {
+  /**
+   * Título field in *Eventos*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventos.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField;
+
+  /**
+   * Resumo field in *Eventos*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventos.resumo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  resumo: prismic.RichTextField;
+
+  /**
+   * Imagem field in *Eventos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventos.imagem
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  imagem: prismic.ImageField<never>;
+
+  /**
+   * Descrição field in *Eventos*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventos.descricao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  descricao: prismic.RichTextField;
+}
+
+/**
+ * Eventos document from Prismic
+ *
+ * - **API ID**: `eventos`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EventosDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<EventosDocumentData>,
+    "eventos",
+    Lang
+  >;
+
+export type AllDocumentTypes =
+  | AprenderDocument
+  | CategoriaDocument
+  | DoacoesDocument
+  | EstabelecimentosDocument
+  | EventosDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -124,10 +280,16 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AprenderDocument,
+      AprenderDocumentData,
       CategoriaDocument,
       CategoriaDocumentData,
+      DoacoesDocument,
+      DoacoesDocumentData,
       EstabelecimentosDocument,
       EstabelecimentosDocumentData,
+      EventosDocument,
+      EventosDocumentData,
       AllDocumentTypes,
     };
   }

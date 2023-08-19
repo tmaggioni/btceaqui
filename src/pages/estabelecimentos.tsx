@@ -62,7 +62,7 @@ const Estabelecimentos: NextPage<
   };
   const ref = useOutsideClick<HTMLDivElement>(handleClickOutside);
 
-  const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
+  const isBrowser = () => typeof window !== "undefined";
 
   function scrollToTop() {
     if (!isBrowser()) return;
@@ -72,7 +72,7 @@ const Estabelecimentos: NextPage<
   return (
     <>
       <Header />
-      <Breadcrumbs label="Pontos" />
+      <Breadcrumbs label="Estabelecimentos" />
       <div className="container flex flex-col mt-5 gap-5">
         <Title>Lista de serviços</Title>
         <div className="w-[100%] flex flex-wrap justify-center gap-3 lg:hidden">
