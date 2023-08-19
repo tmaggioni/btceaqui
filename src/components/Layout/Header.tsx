@@ -3,6 +3,7 @@ import Link from "next/link";
 import { IconMenu } from "../Icons/IconMenu";
 import { useState } from "react";
 import useOutsideClick from "@/hooks/useOutsideClick";
+import HeaderMobile from "./HeaderMobile";
 
 export const Header = () => {
   const [openedMenu, setOpenedMenu] = useState(false);
@@ -85,7 +86,7 @@ export const Header = () => {
               Aprender +
             </Link>
             <Link
-              href={"/"}
+              href={"/contato"}
               className="bg-white p-1 hover:bg-primary rounded-md text-base  hover:text-white transition-all hover:font-bold"
             >
               Contato
@@ -128,77 +129,7 @@ export const Header = () => {
         </Link>
         <IconMenu onClick={() => setOpenedMenu(!openedMenu)} />
       </div>
-
-      <div
-        className={`w-full h-[100vh] bg-black bg-opacity-80 fixed transition-all ${
-          openedMenu ? "z-50 opacity-100" : "opacity-0 z-[-1]"
-        }`}
-      >
-        <div
-          className={`w-[60%] h-full bg-white transition-all delay-100 duration-200 p-3 flex gap-3 flex-col relative ${
-            openedMenu ? "left-0" : "left-[-100%]"
-          }`}
-          ref={ref}
-        >
-          <Image
-            src={"/imgs/logo.png"}
-            width={60}
-            height={68}
-            className="self-center mb-3"
-            alt="Logo Btc é aqui"
-          />
-
-          <Link
-            href={"/estabelecimentos"}
-            className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
-          >
-            Estabelecimentos
-          </Link>
-          <Link
-            href={"/"}
-            className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
-          >
-            Turismo
-          </Link>
-          <Link
-            href={"/doacoes"}
-            className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
-          >
-            Doações
-          </Link>
-          <Link
-            href={"/aprender"}
-            className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
-          >
-            Aprender +
-          </Link>
-          <Link
-            href={"/"}
-            className="text-base border-b-[1px] border-[#8E8E8E] pb-[2px] w-[50%]"
-          >
-            Contato
-          </Link>
-
-          <div className="flex items-center gap-3">
-            <a href="">
-              <Image
-                width={25}
-                height={25}
-                src={"/imgs/whats.png"}
-                alt="Whatsapp link"
-              />
-            </a>
-            <a href="">
-              <Image
-                width={25}
-                height={25}
-                src={"/imgs/insta.png"}
-                alt="Instagram link"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
+      <HeaderMobile openedMenu={openedMenu} ref={ref} />
     </>
   );
 };

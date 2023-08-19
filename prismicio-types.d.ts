@@ -123,6 +123,49 @@ export type ComoChegarDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for Contato documents
+ */
+interface ContatoDocumentData {
+  /**
+   * Título field in *Contato*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contato.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField;
+
+  /**
+   * Descrição field in *Contato*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contato.descricao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  descricao: prismic.RichTextField;
+}
+
+/**
+ * Contato document from Prismic
+ *
+ * - **API ID**: `contato`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContatoDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ContatoDocumentData>,
+    "contato",
+    Lang
+  >;
+
+/**
  * Content for Doações documents
  */
 interface DoacoesDocumentData {
@@ -418,6 +461,7 @@ export type AllDocumentTypes =
   | AprenderDocument
   | CategoriaDocument
   | ComoChegarDocument
+  | ContatoDocument
   | DoacoesDocument
   | EstabelecimentosDocument
   | EventosDocument
@@ -440,6 +484,8 @@ declare module "@prismicio/client" {
       CategoriaDocumentData,
       ComoChegarDocument,
       ComoChegarDocumentData,
+      ContatoDocument,
+      ContatoDocumentData,
       DoacoesDocument,
       DoacoesDocumentData,
       EstabelecimentosDocument,

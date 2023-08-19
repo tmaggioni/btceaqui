@@ -10,7 +10,7 @@ body {
   height: 100%;
 }
 
-iframe {
+.aprender iframe {
   width: 600px !important;
   height: 300px !important;
   max-width: 100%;

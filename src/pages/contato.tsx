@@ -4,7 +4,7 @@ import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
 import { createClient } from "@/prismicio";
-import { RTLinkNode } from "@prismicio/client";
+
 import { JSXMapSerializer, PrismicRichText } from "@prismicio/react";
 import { InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
@@ -21,30 +21,33 @@ const components: JSXMapSerializer = {
       </a>
     );
   },
-
-  list: ({ children }) => {
-    return <ul className="list-disc mb-2 text-base pl-[32px]">{children}</ul>;
+  heading4: ({ children }) => {
+    return <h4 className="mt-10 mb-1">{children}</h4>;
   },
 };
 
-const Aprender: NextPage<
-  InferGetServerSidePropsType<typeof getStaticProps>
-> = ({ learn }) => {
+const Contato: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
+  contact,
+}) => {
   return (
     <>
       <Head>
-        <title>Aprenda sobre Bitcoin</title>
-        <meta name="description" content="Aprenda sobre Bitcoin" key="desc" />
-        <meta property="og:title" content="Aprenda sobre Bitcoin" />
-        <meta property="og:description" content="Aprenda sobre Bitcoin" />
+        <title>Bitcoin é aqui - Contato</title>
+        <meta
+          name="description"
+          content="Bitcoin é aqui - Contato"
+          key="desc"
+        />
+        <meta property="og:title" content="Bitcoin é aqui - Contato" />
+        <meta property="og:description" content="Bitcoin é aqui - Contato" />
       </Head>
       <Header />
-      <Breadcrumbs label="Aprender +" />
+      <Breadcrumbs label="Contato" />
       <Container>
-        <Title>Aprender +</Title>
-        <div className="aprender">
+        <Title>Contato</Title>
+        <div className="flex flex-col gap-2">
           <PrismicRichText
-            field={learn.data.descricao}
+            field={contact.data.descricao}
             components={components}
           />
         </div>
@@ -54,14 +57,14 @@ const Aprender: NextPage<
   );
 };
 
-export default Aprender;
+export default Contato;
 
 export const getStaticProps = async () => {
   const client = createClient();
 
-  const learn = await client.getSingle("aprender");
+  const contact = await client.getSingle("contato");
 
   return {
-    props: { learn },
+    props: { contact },
   };
 };

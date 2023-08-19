@@ -51,7 +51,7 @@ export const Footer = () => {
             </li>
             <li>
               <Link
-                href="/"
+                href="/contato"
                 className=" hover:text-primary text-[#383838] text-base transition-all hover:font-bold"
               >
                 Contato

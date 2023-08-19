@@ -3,6 +3,7 @@ import { IconWhats } from "@/components/Icons/";
 import { IconCheck } from "@/components/Icons/IconCheck";
 import { IconFilter } from "@/components/Icons/IconFilter";
 import { IconInsta } from "@/components/Icons/IconInsta";
+import { IconUp } from "@/components/Icons/IconUp";
 import { Container } from "@/components/Layout/Container";
 
 import { Footer } from "@/components/Layout/Footer";
@@ -175,6 +176,12 @@ const Estabelecimentos: NextPage<
             allow="geolocation"
             src="https://btcmap.org/map?community=bitcoin-e-aqui"
           />
+        </div>
+        <div
+          className="lg:hidden fixed bottom-4 right-4 cursor-pointer rounded-full  w-[45px] h-[45px] z-10 bg-primary"
+          onClick={() => scrollToTop()}
+        >
+          <IconUp className={`fill-white`} />
         </div>
       </Container>
       <div
