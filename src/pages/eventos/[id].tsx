@@ -16,6 +16,7 @@ import {
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const components: JSXMapSerializer = {
   hyperlink: ({ node, children }) => {
@@ -33,6 +34,11 @@ const components: JSXMapSerializer = {
 const EventDetail: NextPage<
   InferGetServerSidePropsType<typeof getStaticProps>
 > = ({ event }) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Carregando...</div>;
+  }
   return (
     <>
       <Head>
@@ -64,7 +70,7 @@ const EventDetail: NextPage<
             className="mb-1 self-center"
           />
 
-          {event.data.data && (
+          {!!event.data.data && (
             <h4 className="font-bold text-primary">
               {formatDateToPtBR(event.data.data)}
             </h4>
