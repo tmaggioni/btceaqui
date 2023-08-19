@@ -26,7 +26,7 @@ export const Header = () => {
             <div className="group bg-white p-1 hover:bg-primary rounded-md text-base  hover:text-white transition-all hover:font-bold relative">
               Turismo
               <div className="absolute top-2 pt-7 z-10">
-                <div className="bg-white left-0 rounded-md shadow p-3 hidden group-hover:flex flex-col">
+                <div className="bg-white left-0 rounded-md shadow p-3 hidden group-hover:flex flex-col gap-1">
                   <Link
                     href={"/pontos-turisticos"}
                     className="font-medium whitespace-nowrap text-black hover:text-primary transition-all"

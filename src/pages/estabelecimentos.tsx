@@ -3,6 +3,7 @@ import { IconWhats } from "@/components/Icons/";
 import { IconCheck } from "@/components/Icons/IconCheck";
 import { IconFilter } from "@/components/Icons/IconFilter";
 import { IconInsta } from "@/components/Icons/IconInsta";
+import { Container } from "@/components/Layout/Container";
 
 import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
@@ -58,7 +59,9 @@ const Estabelecimentos: NextPage<
 
   const handleClickOutside = () => {
     setShowCategories(false);
-    scrollToTop();
+    if (showCategories) {
+      scrollToTop();
+    }
   };
   const ref = useOutsideClick<HTMLDivElement>(handleClickOutside);
 
@@ -73,7 +76,7 @@ const Estabelecimentos: NextPage<
     <>
       <Header />
       <Breadcrumbs label="Estabelecimentos" />
-      <div className="container flex flex-col mt-5 gap-5">
+      <Container>
         <Title>Lista de serviços</Title>
         <div className="w-[100%] flex flex-wrap justify-center gap-3 lg:hidden">
           {categories.map((item) => (
@@ -173,7 +176,7 @@ const Estabelecimentos: NextPage<
             src="https://btcmap.org/map?community=bitcoin-e-aqui"
           />
         </div>
-      </div>
+      </Container>
       <div
         className={`fixed hidden lg:flex z-[51] bg-primary  h-[45px] items-center justify-center p-2 bottom-3 right-3 shadow  ${
           showCategories ? "w-auto rounded" : "w-[45px] rounded-full"

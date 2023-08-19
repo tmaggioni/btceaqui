@@ -1,4 +1,5 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Container } from "@/components/Layout/Container";
 import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
@@ -35,14 +36,14 @@ const Doacoes: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
       </Head>
       <Header />
       <Breadcrumbs label="Doações" />
-      <div className="container flex flex-col mt-5 gap-5">
+      <Container>
         <Title>Doações</Title>
         {/* <div className="text-lg font-bold">{learn.data.titulo}</div> */}
         <PrismicRichText
           field={donation.data.descricao}
           components={components}
         />
-      </div>
+      </Container>
       <Footer />
     </>
   );

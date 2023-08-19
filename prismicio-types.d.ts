@@ -80,6 +80,49 @@ export type CategoriaDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for Como chegar documents
+ */
+interface ComoChegarDocumentData {
+  /**
+   * Título field in *Como chegar*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: como_chegar.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField;
+
+  /**
+   * Descrição field in *Como chegar*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: como_chegar.descricao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  descricao: prismic.RichTextField;
+}
+
+/**
+ * Como chegar document from Prismic
+ *
+ * - **API ID**: `como_chegar`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ComoChegarDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ComoChegarDocumentData>,
+    "como_chegar",
+    Lang
+  >;
+
+/**
  * Content for Doações documents
  */
 interface DoacoesDocumentData {
@@ -263,12 +306,123 @@ export type EventosDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Hotelaria documents
+ */
+interface HotelariaDocumentData {
+  /**
+   * Título field in *Hotelaria*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hotelaria.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField;
+
+  /**
+   * Imagem field in *Hotelaria*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hotelaria.imagem
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  imagem: prismic.ImageField<never>;
+
+  /**
+   * Descrição field in *Hotelaria*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hotelaria.descricao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  descricao: prismic.RichTextField;
+}
+
+/**
+ * Hotelaria document from Prismic
+ *
+ * - **API ID**: `hotelaria`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HotelariaDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<HotelariaDocumentData>,
+    "hotelaria",
+    Lang
+  >;
+
+/**
+ * Content for Pontos turísticos documents
+ */
+interface PontosTuristicosDocumentData {
+  /**
+   * Título field in *Pontos turísticos*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pontos_turisticos.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField;
+
+  /**
+   * imagem field in *Pontos turísticos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pontos_turisticos.imagem
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  imagem: prismic.ImageField<never>;
+
+  /**
+   * Descrição field in *Pontos turísticos*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pontos_turisticos.descricao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  descricao: prismic.RichTextField;
+}
+
+/**
+ * Pontos turísticos document from Prismic
+ *
+ * - **API ID**: `pontos_turisticos`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PontosTuristicosDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<PontosTuristicosDocumentData>,
+    "pontos_turisticos",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | AprenderDocument
   | CategoriaDocument
+  | ComoChegarDocument
   | DoacoesDocument
   | EstabelecimentosDocument
-  | EventosDocument;
+  | EventosDocument
+  | HotelariaDocument
+  | PontosTuristicosDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -284,12 +438,18 @@ declare module "@prismicio/client" {
       AprenderDocumentData,
       CategoriaDocument,
       CategoriaDocumentData,
+      ComoChegarDocument,
+      ComoChegarDocumentData,
       DoacoesDocument,
       DoacoesDocumentData,
       EstabelecimentosDocument,
       EstabelecimentosDocumentData,
       EventosDocument,
       EventosDocumentData,
+      HotelariaDocument,
+      HotelariaDocumentData,
+      PontosTuristicosDocument,
+      PontosTuristicosDocumentData,
       AllDocumentTypes,
     };
   }
