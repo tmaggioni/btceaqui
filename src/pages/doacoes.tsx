@@ -38,7 +38,6 @@ const Doacoes: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
       <Breadcrumbs labels={[{ label: "Doações", path: "" }]} />
       <Container>
         <Title>Doações</Title>
-        {/* <div className="text-lg font-bold">{learn.data.titulo}</div> */}
         <PrismicRichText
           field={donation.data.descricao}
           components={components}
@@ -58,5 +57,6 @@ export const getStaticProps = async () => {
 
   return {
     props: { donation },
+    revalidate: 60,
   };
 };

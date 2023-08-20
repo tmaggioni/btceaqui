@@ -61,7 +61,7 @@ const EventDetail: NextPage<
       <Container>
         <Title>Eventos</Title>
 
-        <div className="flex flex-col gap-5 items-start p-4 rounded shadow-lg">
+        <div className="eventos flex flex-col gap-5 items-start p-4 rounded shadow-lg">
           <Image
             src={event.data.imagem.url || ""}
             width={event.data.imagem.dimensions?.width}
@@ -110,5 +110,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: { event },
+    revalidate: 60,
   };
 };

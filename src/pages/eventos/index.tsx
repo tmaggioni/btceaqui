@@ -101,5 +101,6 @@ export const getStaticProps = async () => {
 
   return {
     props: { events },
+    revalidate: 60,
   };
 };

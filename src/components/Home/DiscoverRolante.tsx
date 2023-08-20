@@ -1,10 +1,15 @@
 import Image from "next/image";
 import { Button } from "../Button";
 import { Parallax } from "react-scroll-parallax";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import useIsMobileClient from "@/hooks/useIsMobileClient";
+import { EventohomeDocument } from "../../../prismicio-types";
+import Link from "next/link";
 
-export const DiscoverRolante = () => {
-  const isMobile = useIsMobile();
+interface Props {
+  eventHome: EventohomeDocument<string>;
+}
+export const DiscoverRolante = ({ eventHome }: Props) => {
+  const isMobile = useIsMobileClient();
   return (
     <>
       <div className="w-full relative flex flex-col justify-center items-center h-[80vh] lg:h-auto lg:pt-6 lg:pb-6">
@@ -28,21 +33,27 @@ export const DiscoverRolante = () => {
           />
         </div>
       </div>
-      <div className="absolute top-[40%] left-0 flex delay-300 animate-pulse cursor-pointer lg:relative lg:animate-none lg:top-0 lg:m-auto">
-        <div className="bg-primary w-[36px] h-[203px]">
-          <span
-            className={`text-[30px] uppercase block font-bold drop-shadow-title rotate-[-90deg] relative top-[130px]`}
-          >
-            FESTIVAL
-          </span>
-        </div>
-        <Image
-          src={"/imgs/springfestival.png"}
-          width={299}
-          height={203}
-          alt="Clique para acessar informações sobre o Spring Festival"
-        />
-      </div>
+      {eventHome.data.imagem.url && (
+        <Link
+          href={`/eventos/${(eventHome.data.link as any).uid}`}
+          className="absolute top-[40%] left-0 flex delay-300 animate-pulse cursor-pointer lg:relative lg:animate-none lg:top-0 lg:m-auto"
+        >
+          <div className="bg-primary w-[36px] h-[203px]">
+            <span
+              className={`text-[30px] uppercase block font-bold drop-shadow-title rotate-[-90deg] relative top-[130px]`}
+            >
+              FESTIVAL
+            </span>
+          </div>
+          <Image
+            src={eventHome.data.imagem.url}
+            width={eventHome.data.imagem.dimensions.width}
+            height={eventHome.data.imagem.dimensions.height}
+            alt={eventHome.data.imagem.alt || "Evento Bitcoin é aqui"}
+          />
+        </Link>
+      )}
+
       <div className="container flex items-center justify-center gap-5 mt-[-50px]  lg:flex-col relative z-20 lg:mt-[15px]">
         <div className="flex flex-col gap-3">
           <h2 className="text-4xl font-bold lg:text-2xl">

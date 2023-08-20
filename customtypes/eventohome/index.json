@@ -1,0 +1,23 @@
+{
+  "id": "eventohome",
+  "label": "EventoHome",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "titulo": {
+        "type": "Text",
+        "config": { "label": "Título", "placeholder": "" }
+      },
+      "imagem": {
+        "type": "Image",
+        "config": { "label": "imagem", "constraint": {}, "thumbnails": [] }
+      },
+      "link": {
+        "type": "Link",
+        "config": { "label": "link", "placeholder": "", "select": null }
+      }
+    }
+  }
+}

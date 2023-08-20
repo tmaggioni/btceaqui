@@ -35,14 +35,6 @@ export const Footer = () => {
             </li>
             <li>
               <Link
-                href="/"
-                className=" hover:text-primary text-[#383838] text-base transition-all hover:font-bold"
-              >
-                Turismo
-              </Link>
-            </li>
-            <li>
-              <Link
                 href="/doacoes"
                 className=" hover:text-primary text-[#383838] text-base transition-all hover:font-bold"
               >
@@ -67,12 +59,52 @@ export const Footer = () => {
             </li>
           </ul>
         </div>
+
+        <div className="flex items-center gap-2">
+          <TitleFooter className="relative top-[70px]">Turismo</TitleFooter>
+          <ul className="list-none flex flex-col gap-1">
+            <li>
+              <Link
+                href={"/pontos-turisticos"}
+                className="font-medium whitespace-nowrap text-black hover:text-primary transition-all"
+              >
+                Pontos turísticos
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/hotelaria"}
+                className="font-medium whitespace-nowrap text-black hover:text-primary transition-all"
+              >
+                Hotelaria
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/como-chegar"}
+                className="font-medium whitespace-nowrap text-black hover:text-primary transition-all"
+              >
+                Como chegar
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"https://chat.whatsapp.com/COAUUgDhmDyHwQDPLOLg4a"}
+                target="_blank"
+                className="font-medium whitespace-nowrap text-black hover:text-primary transition-all"
+              >
+                Chat turismo
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div className="flex items-center gap-2">
           <TitleFooter className="relative top-[70px]">Contato</TitleFooter>
           <ul className="list-none flex flex-col gap-3">
             <li>
-              <a
-                href="http://"
+              <Link
+                href="https://www.instagram.com/bitcoineaqui/"
+                target="_blank"
                 className=" hover:text-primary flex items-center gap-1 text-[#383838] text-base transition-all hover:font-bold"
               >
                 <Image
@@ -82,12 +114,13 @@ export const Footer = () => {
                   alt="Instagram link"
                 />
                 @bitcoineaqui
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a
-                href="http://"
+              <Link
+                href="https://iris.to/bitcoineaqui"
+                target="_blank"
                 className=" hover:text-primary flex items-center gap-1 text-[#383838] text-base transition-all hover:font-bold"
               >
                 <Image
@@ -97,11 +130,12 @@ export const Footer = () => {
                   alt="Iris link"
                 />
                 https://iris.to/bitcoineaqui
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="http://"
+              <Link
+                href="https://twitter.com/bitcoineaqui"
+                target="_blank"
                 className=" hover:text-primary flex items-center gap-1 text-[#383838] text-base transition-all hover:font-bold"
               >
                 <Image
@@ -111,11 +145,12 @@ export const Footer = () => {
                   alt="Link twitter"
                 />
                 @bitcoineaqui
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="http://"
+              <Link
+                href="https://chat.whatsapp.com/COAUUgDhmDyHwQDPLOLg4a"
+                target="_blank"
                 className=" hover:text-primary flex items-center gap-1 text-[#383838] text-base transition-all hover:font-bold"
               >
                 <Image
@@ -125,7 +160,7 @@ export const Footer = () => {
                   alt="Pergunte a um morador!"
                 />
                 Pergunte a um morador!
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -133,7 +168,11 @@ export const Footer = () => {
           <TitleFooter className="relative top-[92px]">Contribua</TitleFooter>
           <div className="flex flex-col gap-3">
             <span>Quer contribuir com o projeto?</span>
-            <Link className="underline font-bold" href="/">
+            <Link
+              className="underline font-bold"
+              href="https://coinos.io/bitcoineaqui/receive"
+              target="_blank"
+            >
               Envie aqui um sats de energia!
             </Link>
           </div>

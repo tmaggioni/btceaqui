@@ -78,5 +78,6 @@ export const getStaticProps = async () => {
 
   return {
     props: { hotelaria },
+    revalidate: 60,
   };
 };

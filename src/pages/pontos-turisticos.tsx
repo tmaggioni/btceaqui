@@ -92,5 +92,6 @@ export const getStaticProps = async () => {
 
   return {
     props: { points },
+    revalidate: 60,
   };
 };

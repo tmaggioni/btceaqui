@@ -65,9 +65,7 @@ export default function App({ Component, pageProps }: AppProps) {
       className={`${roboto.className} flex min-h-screen flex-col max-w-[1920px] m-auto`}
     >
       <ParallaxProvider>
-        <IsSsrMobileContext.Provider value={pageProps.isSsrMobile}>
-          <Component {...pageProps} />
-        </IsSsrMobileContext.Provider>
+        <Component {...pageProps} />
       </ParallaxProvider>
     </div>
   );

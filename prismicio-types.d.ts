@@ -285,6 +285,60 @@ export type EstabelecimentosDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for EventoHome documents
+ */
+interface EventohomeDocumentData {
+  /**
+   * Título field in *EventoHome*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventohome.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField;
+
+  /**
+   * imagem field in *EventoHome*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventohome.imagem
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  imagem: prismic.ImageField<never>;
+
+  /**
+   * link field in *EventoHome*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventohome.link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * EventoHome document from Prismic
+ *
+ * - **API ID**: `eventohome`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EventohomeDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<EventohomeDocumentData>,
+    "eventohome",
+    Lang
+  >;
+
+/**
  * Content for Eventos documents
  */
 interface EventosDocumentData {
@@ -475,6 +529,7 @@ export type AllDocumentTypes =
   | ContatoDocument
   | DoacoesDocument
   | EstabelecimentosDocument
+  | EventohomeDocument
   | EventosDocument
   | HotelariaDocument
   | PontosTuristicosDocument;
@@ -501,6 +556,8 @@ declare module "@prismicio/client" {
       DoacoesDocumentData,
       EstabelecimentosDocument,
       EstabelecimentosDocumentData,
+      EventohomeDocument,
+      EventohomeDocumentData,
       EventosDocument,
       EventosDocumentData,
       HotelariaDocument,

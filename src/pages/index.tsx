@@ -6,14 +6,16 @@ import { IconPins } from "@/components/Icons/IconPins";
 import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
-import { getIsSsrMobile } from "@/hooks/getSsrMobile";
-import { GetServerSidePropsContext } from "next";
+import { createClient } from "@/prismicio";
+import { InferGetServerSidePropsType, NextPage } from "next";
 
-export default function Home() {
+const Home: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
+  eventHome,
+}) => {
   return (
     <>
       <Header />
-      <DiscoverRolante />
+      <DiscoverRolante eventHome={eventHome} />
       <div className="w-full mt-16 pt-6 pb-6 flex justify-center items-center gap-3">
         <Title>O que fazer na Região?</Title>
       </div>
@@ -30,7 +32,7 @@ export default function Home() {
             </p>
             <Button
               label="Confira os locais"
-              link="/"
+              link="/estabelecimentos"
               className="self-center"
               size="medium"
             />
@@ -46,7 +48,7 @@ export default function Home() {
             </p>
             <Button
               label="Confira"
-              link="/"
+              link="/pontos-turisticos"
               className="self-center"
               size="medium"
             />
@@ -62,7 +64,7 @@ export default function Home() {
             </p>
             <Button
               label="Confira"
-              link="/"
+              link="/eventos"
               className="self-center"
               size="medium"
             />
@@ -79,7 +81,7 @@ export default function Home() {
             </p>
             <Button
               label="Confira"
-              link="/"
+              link="/hotelaria"
               className="self-center"
               size="medium"
             />
@@ -97,7 +99,7 @@ export default function Home() {
             </p>
             <Button
               label="Bora!"
-              link="/"
+              link="/como-chegar"
               className="self-center"
               size="medium"
             />
@@ -115,8 +117,9 @@ export default function Home() {
             </p>
             <Button
               label="Whatsapp"
-              link="/"
+              link="https://chat.whatsapp.com/COAUUgDhmDyHwQDPLOLg4a"
               className="self-center"
+              target="_blank"
               size="medium"
             />
           </div>
@@ -125,12 +128,17 @@ export default function Home() {
       <Footer />
     </>
   );
-}
+};
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export default Home;
+
+export const getStaticProps = async () => {
+  const client = createClient();
+
+  const eventHome = await client.getSingle("eventohome");
+
   return {
-    props: {
-      isSsrMobile: getIsSsrMobile(context),
-    },
+    props: { eventHome },
+    revalidate: 60,
   };
-}
+};

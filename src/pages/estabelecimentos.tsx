@@ -256,5 +256,6 @@ export const getStaticProps = async () => {
   });
   return {
     props: { categories, locals },
+    revalidate: 60,
   };
 };
