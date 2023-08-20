@@ -32,14 +32,20 @@ const Contato: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
   return (
     <>
       <Head>
-        <title>Bitcoin é aqui - Contato</title>
+        <title>Bitcoin é Aqui! Rolante/Riozinho - Contato</title>
         <meta
           name="description"
-          content="Bitcoin é aqui - Contato"
-          key="desc"
+          content="Onde a beleza natural se une à inovação do Bitcoin como forma de pagamento amplamente aceita."
         />
-        <meta property="og:title" content="Bitcoin é aqui - Contato" />
-        <meta property="og:description" content="Bitcoin é aqui - Contato" />
+        <meta
+          property="og:title"
+          content="Bitcoin é Aqui! Rolante/Riozinho - Contato"
+        />
+        <meta
+          property="og:description"
+          content="Onde a beleza natural se une à inovação do Bitcoin como forma de pagamento amplamente aceita."
+        />
+        <meta property="og:image" content="/imgs/logo.png" />
       </Head>
       <Header />
       <Breadcrumbs labels={[{ label: "Contato", path: "" }]} />

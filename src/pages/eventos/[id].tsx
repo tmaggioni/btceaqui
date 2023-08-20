@@ -42,14 +42,11 @@ const EventDetail: NextPage<
   return (
     <>
       <Head>
-        <title>Bitcoin é aqui - Eventos</title>
-        <meta
-          name="description"
-          content="Bitcoin é aqui - Eventos"
-          key="desc"
-        />
-        <meta property="og:title" content="Bitcoin é aqui - Eventos" />
-        <meta property="og:description" content="Bitcoin é aqui - Eventos" />
+        <title>Bitcoin é Aqui! - {event.data.titulo}</title>
+        <meta name="description" content={event.data.titulo} />
+        <meta property="og:title" content={event.data.titulo} />
+        <meta property="og:description" content={event.data.titulo} />
+        <meta property="og:image" content="/imgs/logo.png" />
       </Head>
       <Header />
       <Breadcrumbs

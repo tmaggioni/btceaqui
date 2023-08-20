@@ -28,17 +28,20 @@ const ComoChegar: NextPage<
   return (
     <>
       <Head>
-        <title>Bitcoin é aqui - Como chegar</title>
+        <title>Bitcoin é Aqui! Rolante/Riozinho - Como chegar</title>
         <meta
           name="description"
-          content="Bitcoin é aqui - Como chegar"
-          key="desc"
+          content="Onde a beleza natural se une à inovação do Bitcoin como forma de pagamento amplamente aceita."
         />
-        <meta property="og:title" content="Bitcoin é aqui - Como chegar" />
+        <meta
+          property="og:title"
+          content="Bitcoin é Aqui! Rolante/Riozinho - Como chegar"
+        />
         <meta
           property="og:description"
-          content="Bitcoin é aqui - Como chegar"
+          content="Onde a beleza natural se une à inovação do Bitcoin como forma de pagamento amplamente aceita."
         />
+        <meta property="og:image" content="/imgs/logo.png" />
       </Head>
       <Header />
       <Breadcrumbs labels={[{ label: "Como chegar", path: "" }]} />

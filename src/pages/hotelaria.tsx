@@ -26,14 +26,20 @@ const Hotelaria: NextPage<
   return (
     <>
       <Head>
-        <title>Bitcoin é aqui - Hotelaria</title>
+        <title>Bitcoin é Aqui! Rolante/Riozinho - Hotelaria</title>
         <meta
           name="description"
-          content="Bitcoin é aqui - Hotelaria"
-          key="desc"
+          content="Onde a beleza natural se une à inovação do Bitcoin como forma de pagamento amplamente aceita."
         />
-        <meta property="og:title" content="Bitcoin é aqui - Hotelaria" />
-        <meta property="og:description" content="Bitcoin é aqui - Hotelaria" />
+        <meta
+          property="og:title"
+          content="Bitcoin é Aqui! Rolante/Riozinho - Hotelaria"
+        />
+        <meta
+          property="og:description"
+          content="Onde a beleza natural se une à inovação do Bitcoin como forma de pagamento amplamente aceita."
+        />
+        <meta property="og:image" content="/imgs/logo.png" />
       </Head>
       <Header />
       <Breadcrumbs labels={[{ label: "Hotelaria", path: "" }]} />

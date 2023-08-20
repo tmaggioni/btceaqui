@@ -8,12 +8,26 @@ import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
 import { createClient } from "@/prismicio";
 import { InferGetServerSidePropsType, NextPage } from "next";
+import Head from "next/head";
 
 const Home: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
   eventHome,
 }) => {
   return (
     <>
+      <Head>
+        <title>Bitcoin é Aqui! Rolante/Riozinho</title>
+        <meta
+          name="description"
+          content="Onde a beleza natural se une à inovação do Bitcoin como forma de pagamento amplamente aceita."
+        />
+        <meta property="og:title" content="Bitcoin é Aqui! Rolante/Riozinho" />
+        <meta
+          property="og:description"
+          content="Onde a beleza natural se une à inovação do Bitcoin como forma de pagamento amplamente aceita."
+        />
+        <meta property="og:image" content="/imgs/logo.png" />
+      </Head>
       <Header />
       <DiscoverRolante eventHome={eventHome} />
       <div className="w-full mt-16 pt-6 pb-6 flex justify-center items-center gap-3">

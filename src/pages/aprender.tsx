@@ -32,10 +32,14 @@ const Aprender: NextPage<
   return (
     <>
       <Head>
-        <title>Aprenda sobre Bitcoin</title>
-        <meta name="description" content="Aprenda sobre Bitcoin" key="desc" />
-        <meta property="og:title" content="Aprenda sobre Bitcoin" />
-        <meta property="og:description" content="Aprenda sobre Bitcoin" />
+        <title>Bitcoin é Aqui! Rolante/Riozinho - Aprender +</title>
+        <meta name="description" content="Aprenda mais sobre bitcoin" />
+        <meta
+          property="og:title"
+          content="Bitcoin é Aqui! Rolante/Riozinho - Aprender +"
+        />
+        <meta property="og:description" content="Aprenda mais sobre bitcoin" />
+        <meta property="og:image" content="/imgs/logo.png" />
       </Head>
       <Header />
       <Breadcrumbs labels={[{ label: "Aprender +", path: "" }]} />

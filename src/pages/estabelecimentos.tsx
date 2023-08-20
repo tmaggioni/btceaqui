@@ -13,6 +13,7 @@ import { Title } from "@/components/Title";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import { createClient } from "@/prismicio";
 import { InferGetServerSidePropsType, NextPage } from "next";
+import Head from "next/head";
 import { useMemo, useState } from "react";
 
 function phoneMask(phone: string) {
@@ -75,6 +76,22 @@ const Estabelecimentos: NextPage<
 
   return (
     <>
+      <Head>
+        <title>Bitcoin é Aqui! Rolante/Riozinho - Estabelecimentos</title>
+        <meta
+          name="description"
+          content="Onde a beleza natural se une à inovação do Bitcoin como forma de pagamento amplamente aceita."
+        />
+        <meta
+          property="og:title"
+          content="Bitcoin é Aqui! Rolante/Riozinho - Estabelecimentos"
+        />
+        <meta
+          property="og:description"
+          content="Onde a beleza natural se une à inovação do Bitcoin como forma de pagamento amplamente aceita."
+        />
+        <meta property="og:image" content="/imgs/logo.png" />
+      </Head>
       <Header />
       <Breadcrumbs labels={[{ label: "Estabelecimentos", path: "" }]} />
       <Container>
