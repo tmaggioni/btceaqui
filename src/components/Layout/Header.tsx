@@ -47,7 +47,8 @@ export const Header = () => {
                     Como chegar
                   </Link>
                   <Link
-                    href={"/whats"}
+                    href={"https://chat.whatsapp.com/COAUUgDhmDyHwQDPLOLg4a"}
+                    target="_blank"
                     className="font-medium whitespace-nowrap text-black hover:text-primary transition-all"
                   >
                     Chat turismo

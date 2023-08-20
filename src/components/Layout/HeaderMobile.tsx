@@ -28,68 +28,52 @@ const HeaderMobile = forwardRef<HTMLDivElement, Props>(
 
           <Link
             href={"/estabelecimentos"}
-            className="text-base flex items-center gap-1 underline"
+            className="text-base flex items-center gap-1"
           >
             Estabelecimentos
           </Link>
-          <Link
-            href={"/eventos"}
-            className="text-base flex items-center gap-1 underline"
-          >
+          <Link href={"/eventos"} className="text-base flex items-center gap-1">
             Eventos
           </Link>
           <Link
             href={"/pontos-turisticos"}
-            className="text-base flex items-center gap-1 underline"
+            className="text-base flex items-center gap-1"
           >
             Pontos turísticos
           </Link>
           <Link
             href={"/hotelaria"}
-            className="text-base flex items-center gap-1 underline"
+            className="text-base flex items-center gap-1"
           >
             Hotelaria
           </Link>
           <Link
             href={"/como-chegar"}
-            className="text-base flex items-center gap-1 underline"
+            className="text-base flex items-center gap-1"
           >
             Como chegar
           </Link>
           <Link
-            href={"/whats"}
-            className="text-base flex items-center gap-1 underline"
+            href={"https://chat.whatsapp.com/COAUUgDhmDyHwQDPLOLg4a"}
+            target="_blank"
+            className="text-base flex items-center gap-1"
           >
             Chat turismo
           </Link>
-          <Link
-            href={"/doacoes"}
-            className="text-base flex items-center gap-1 underline"
-          >
+          <Link href={"/doacoes"} className="text-base flex items-center gap-1">
             Doações
           </Link>
           <Link
             href={"/aprender"}
-            className="text-base flex items-center gap-1 underline"
+            className="text-base flex items-center gap-1"
           >
             Aprender +
           </Link>
-          <Link
-            href={"/contato"}
-            className="text-base flex items-center gap-1 underline"
-          >
+          <Link href={"/contato"} className="text-base flex items-center gap-1">
             Contato
           </Link>
 
           <div className="flex items-center gap-3">
-            <a href="">
-              <Image
-                width={25}
-                height={25}
-                src={"/imgs/whats.png"}
-                alt="Whatsapp link"
-              />
-            </a>
             <a href="https://www.instagram.com/bitcoineaqui/" target="_blank">
               <Image
                 width={25}
