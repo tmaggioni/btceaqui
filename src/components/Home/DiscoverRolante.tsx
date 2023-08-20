@@ -20,12 +20,12 @@ export const DiscoverRolante = ({ eventHome }: Props) => {
           className="object-cover"
         />
         <div className="relative z-10 flex flex-col items-center justify-center gap-7">
-          <h2 className="text-5xl lg:text-2xl text-white drop-shadow-btc font-bold text-center flex flex-col gap-2">
+          <h1 className="text-5xl lg:text-2xl text-white drop-shadow-btc font-bold text-center flex flex-col gap-2">
             <span>
               Viver <span className="text-7xl lg:text-3xl">100%</span> em BTC?
             </span>
             <span>Aqui já é possível</span>
-          </h2>
+          </h1>
           <Button
             label="Veja os estabelecimentos!"
             link={"/estabelecimentos"}
