@@ -102,7 +102,7 @@ export const getStaticProps = async () => {
   const client = createClient();
 
   const events = await client.getAllByType("eventos", {
-    orderings: [{ field: "my.eventos.data", direction: "desc" }],
+    orderings: [{ field: "my.eventos.ordem", direction: "desc" }],
   });
 
   return {

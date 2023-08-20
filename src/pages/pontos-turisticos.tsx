@@ -4,21 +4,11 @@ import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
 import { createClient } from "@/prismicio";
-import { RTLinkNode } from "@prismicio/client";
-import { JSXMapSerializer, PrismicRichText } from "@prismicio/react";
+import { components } from "@/utils";
+import { PrismicRichText } from "@prismicio/react";
 import { InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-
-const components: JSXMapSerializer = {
-  hyperlink: ({ node, children }) => {
-    return (
-      <a href={node.data.url} target="_blank" className="underline font-medium">
-        {children}
-      </a>
-    );
-  },
-};
 
 const PontosTuristicos: NextPage<
   InferGetServerSidePropsType<typeof getStaticProps>

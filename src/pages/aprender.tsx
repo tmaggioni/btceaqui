@@ -4,27 +4,10 @@ import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
 import { createClient } from "@/prismicio";
-import { JSXMapSerializer, PrismicRichText } from "@prismicio/react";
+import { components } from "@/utils";
+import { PrismicRichText } from "@prismicio/react";
 import { InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
-
-const components: JSXMapSerializer = {
-  hyperlink: ({ node, children }) => {
-    return (
-      <a
-        href={node.data.url}
-        target="_blank"
-        className="underline font-medium text-primary"
-      >
-        {children}
-      </a>
-    );
-  },
-
-  list: ({ children }) => {
-    return <ul className="list-disc mb-2 text-base pl-[32px]">{children}</ul>;
-  },
-};
 
 const Aprender: NextPage<
   InferGetServerSidePropsType<typeof getStaticProps>

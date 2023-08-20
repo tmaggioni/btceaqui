@@ -17,7 +17,7 @@ export const DiscoverRolante = ({ eventHome }: Props) => {
           src={"/imgs/img-cachoeira.png"}
           fill
           alt="Background"
-          className="object-cover"
+          objectFit="cover"
         />
         <div className="relative z-10 flex flex-col items-center justify-center gap-7">
           <h1 className="text-5xl lg:text-2xl text-white drop-shadow-btc font-bold text-center flex flex-col gap-2">

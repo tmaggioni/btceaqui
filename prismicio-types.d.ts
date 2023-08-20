@@ -396,6 +396,17 @@ interface EventosDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   descricao: prismic.RichTextField;
+
+  /**
+   * ordem field in *Eventos*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: eventos.ordem
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  ordem: prismic.NumberField;
 }
 
 /**
