@@ -245,9 +245,6 @@ const Estabelecimentos: NextPage<
                     : "bg-white"
                 }`}
               >
-                {selecteds.includes(String(item.uid)) && (
-                  <IconCheck className="fill-white" width={20} height={20} />
-                )}
                 {item.data.nome}
               </div>
             ))}
