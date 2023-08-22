@@ -515,6 +515,17 @@ interface PontosTuristicosDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   descricao: prismic.RichTextField;
+
+  /**
+   * ordem field in *Pontos turísticos*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pontos_turisticos.ordem
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  ordem: prismic.NumberField;
 }
 
 /**

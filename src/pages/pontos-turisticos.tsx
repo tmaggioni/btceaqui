@@ -80,7 +80,9 @@ export default PontosTuristicos;
 export const getStaticProps = async () => {
   const client = createClient();
 
-  const points = await client.getAllByType("pontos_turisticos");
+  const points = await client.getAllByType("pontos_turisticos", {
+    orderings: [{ field: "my.pontos_turisticos.ordem", direction: "desc" }],
+  });
 
   return {
     props: { points },
