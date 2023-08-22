@@ -10,6 +10,9 @@ body {
   height: 100%;
 }
 
+p {
+  min-height: 20px;
+}
 .aprender iframe {
   width: 600px !important;
   height: 300px !important;
