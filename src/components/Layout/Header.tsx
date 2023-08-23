@@ -4,10 +4,12 @@ import { IconMenu } from "../Icons/IconMenu";
 import { useState } from "react";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import HeaderMobile from "./HeaderMobile";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export const Header = () => {
   const [openedMenu, setOpenedMenu] = useState(false);
   const [openedLanguage, setOpenedLanguage] = useState(false);
+  const isMobile = useIsMobile();
   const handleClickOutside = () => {
     setOpenedMenu(false);
   };
@@ -104,13 +106,16 @@ export const Header = () => {
                   alt="Trocar idioma"
                 />
               </div>
-              <div
-                className={`absolute top-9 right-0 bg-white rounded shadow p-1 ${
-                  openedLanguage ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <div id="google_translate_element" />
-              </div>
+
+              {!isMobile && (
+                <div
+                  className={`absolute top-9 right-0 bg-white rounded shadow p-1 ${
+                    openedLanguage ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <div id="google_translate_element" />
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -1,11 +1,14 @@
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useIsMobile } from "@/hooks/useIsMobile";
 interface Props {
   openedMenu: boolean;
 }
 const HeaderMobile = forwardRef<HTMLDivElement, Props>(
   ({ openedMenu }, ref) => {
+    const isMobile = useIsMobile();
+    const [openedLanguage, setOpenedLanguage] = useState(false);
     return (
       <div
         className={`w-full h-[100vh] bg-black bg-opacity-80 fixed transition-all ${
@@ -83,6 +86,29 @@ const HeaderMobile = forwardRef<HTMLDivElement, Props>(
               />
             </a>
           </div>
+
+          {isMobile && (
+            <div className="relative mt-5">
+              <div
+                className="cursor-pointer"
+                onClick={() => setOpenedLanguage(!openedLanguage)}
+              >
+                <Image
+                  src={"/imgs/br.png"}
+                  width={25}
+                  height={17}
+                  alt="Trocar idioma"
+                />
+              </div>
+              <div
+                className={`absolute top-9 left-0 bg-white rounded shadow p-1 ${
+                  openedLanguage ? "opacity-100" : "opacity-0"
+                }`}
+              >
+                <div id="google_translate_element" />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
