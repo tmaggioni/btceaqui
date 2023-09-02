@@ -5,7 +5,7 @@ import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
 import { createClient } from "@/prismicio";
-import { components, formatDateToPtBR } from "@/utils";
+import { formatDateToPtBR } from "@/utils";
 import { JSXMapSerializer, PrismicRichText } from "@prismicio/react";
 import {
   GetStaticPaths,
@@ -17,6 +17,31 @@ import Head from "next/head";
 import Image from "next/image";
 
 import { useRouter } from "next/router";
+
+const components: JSXMapSerializer = {
+  hyperlink: ({ node, children }) => {
+    return (
+      <a
+        href={node.data.url}
+        target="_blank"
+        className="underline font-medium text-primary"
+      >
+        {children}
+      </a>
+    );
+  },
+
+  list: ({ children }) => {
+    return (
+      <ul className="list-disc mb-2 text-base pl-[32px] flex flex-col gap-4">
+        {children}
+      </ul>
+    );
+  },
+  heading4: ({ children }) => {
+    return <h4 className="mt-10 mb-1">{children}</h4>;
+  },
+};
 
 const EventDetail: NextPage<
   InferGetServerSidePropsType<typeof getStaticProps>
