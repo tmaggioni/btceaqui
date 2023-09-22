@@ -25,29 +25,29 @@ function phoneMask(phone: string) {
 const Estabelecimentos: NextPage<
   InferGetServerSidePropsType<typeof getStaticProps>
 > = ({ categories, locals }) => {
-  const [selecteds, setSelecteds] = useState<string[]>([]);
-  const [selectedsToShow, setSelectedsToShow] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string>("");
+  const [selectedToShow, setSelectedToShow] = useState<string>("");
   const [search, setSearch] = useState("");
 
   const [showCategories, setShowCategories] = useState(false);
 
   const handleSelecteds = (categorie: string, name: string) => {
-    if (!selecteds.includes(categorie)) {
-      setSelecteds((prev) => [...prev, categorie]);
-      setSelectedsToShow((prev) => [...prev, name]);
+    if (selected === categorie) {
+      setSelected("");
+      setSelectedToShow("");
     } else {
-      setSelecteds((prev) => prev.filter((item) => item !== categorie));
-      setSelectedsToShow((prev) => prev.filter((item) => item !== name));
+      setSelected(categorie);
+      setSelectedToShow(name);
     }
   };
 
   const filteredLocals = useMemo(() => {
-    return selecteds.length > 0
-      ? locals.filter((item) =>
-          selecteds.includes(String((item.data.categoria as any).uid))
+    return selected
+      ? locals.filter(
+          (item) => String((item.data.categoria as any).uid) === selected
         )
       : locals;
-  }, [selecteds, locals]);
+  }, [selected, locals]);
 
   const searchedLocals = useMemo(() => {
     return search.length > 0
@@ -104,7 +104,7 @@ const Estabelecimentos: NextPage<
                 handleSelecteds(String(item.uid), String(item.data.nome))
               }
               className={`shadow p-2 rounded-lg transition-all flex cursor-pointer ${
-                selecteds.includes(String(item.uid))
+                selected === String(item.uid)
                   ? "bg-primary text-white"
                   : "bg-white"
               }`}
@@ -119,8 +119,8 @@ const Estabelecimentos: NextPage<
             placeholder="Pesquise aqui"
             className="shadow-sm border-[#ccc] border-[1px] p-2 rounded-lg lg:w-full"
             onChange={(e) => {
-              setSelectedsToShow([]);
-              setSelecteds([]);
+              setSelectedToShow("");
+              setSelected("");
               setSearch(e.target.value.toLowerCase());
             }}
             value={search}
@@ -129,12 +129,10 @@ const Estabelecimentos: NextPage<
             {locals.length} estabelecimentos
           </div>
         </div>
-        {selectedsToShow.length > 0 && (
+        {selectedToShow.length > 0 && (
           <div className="hidden lg:flex text-xs justify-center flex-col">
-            <span>Selecionados:</span>
-            <span className="font-bold text-sm">
-              {selectedsToShow.join(" , ")}
-            </span>
+            <span>Selecionado:</span>
+            <span className="font-bold text-sm">{selectedToShow}</span>
           </div>
         )}
 
@@ -240,7 +238,7 @@ const Estabelecimentos: NextPage<
                   setSearch("");
                 }}
                 className={`shadow p-2 rounded-lg transition-all flex cursor-pointer items-center gap-2 ${
-                  selecteds.includes(String(item.uid))
+                  selected === String(item.uid)
                     ? "bg-primary text-white"
                     : "bg-white"
                 }`}
