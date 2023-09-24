@@ -1,11 +1,9 @@
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { IconWhats } from "@/components/Icons/";
-import { IconCheck } from "@/components/Icons/IconCheck";
 import { IconFilter } from "@/components/Icons/IconFilter";
 import { IconInsta } from "@/components/Icons/IconInsta";
 import { IconUp } from "@/components/Icons/IconUp";
 import { Container } from "@/components/Layout/Container";
-
 import { Footer } from "@/components/Layout/Footer";
 import { Header } from "@/components/Layout/Header";
 import { Title } from "@/components/Title";
@@ -24,7 +22,7 @@ function phoneMask(phone: string) {
 }
 const Estabelecimentos: NextPage<
   InferGetServerSidePropsType<typeof getStaticProps>
-> = ({ categories, locals }) => {
+> = ({ categories, locals, categoriesObject }) => {
   const [selected, setSelected] = useState<string>("");
   const [selectedToShow, setSelectedToShow] = useState<string>("");
   const [search, setSearch] = useState("");
@@ -42,12 +40,8 @@ const Estabelecimentos: NextPage<
   };
 
   const filteredLocals = useMemo(() => {
-    return selected
-      ? locals.filter(
-          (item) => String((item.data.categoria as any).uid) === selected
-        )
-      : locals;
-  }, [selected, locals]);
+    return selected ? categoriesObject[selected] : locals;
+  }, [selected, locals, categoriesObject]);
 
   const searchedLocals = useMemo(() => {
     return search.length > 0
@@ -137,7 +131,7 @@ const Estabelecimentos: NextPage<
         )}
 
         <div className="grid grid-cols-3 gap-3 lg:grid-cols-1 pt-10 border-t-4 border-primary">
-          {searchedLocals.map((item) => (
+          {searchedLocals.map((item: any) => (
             <div
               key={item.data.nome}
               className="bg-white transition-all shadow-lg rounded-md p-6 flex items-start flex-col"
@@ -266,8 +260,19 @@ export const getStaticProps = async () => {
   const locals = await client.getAllByType("estabelecimentos", {
     orderings: [{ field: "my.estabelecimentos.nome", direction: "asc" }],
   });
+
+  const categoriesObject = categories.reduce((acc, cur) => {
+    let uid = cur.uid;
+
+    return {
+      ...acc,
+      [uid]: locals.filter(
+        (item) => String((item.data.categoria as any).uid) === uid
+      ),
+    };
+  }, {} as { [key: string]: any });
   return {
-    props: { categories, locals },
+    props: { categories, locals, categoriesObject },
     revalidate: 60,
   };
 };
