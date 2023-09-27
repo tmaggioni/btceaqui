@@ -78,7 +78,6 @@ const EventDetail: NextPage<
             alt={String(event.data.titulo)}
             className="mb-1 self-center"
           />
-
           {!!event.data.data && (
             <h4 className="font-bold text-primary">
               {formatDateToPtBR(event.data.data)}
@@ -89,6 +88,81 @@ const EventDetail: NextPage<
             components={components}
           />
         </div>
+        {event.uid === "bitcoin-spring-festival-2023" && (
+          <>
+            <Title>Parceiros</Title>
+            <div className="flex flex-col items-center gap-10">
+              <div className="flex items-center gap-3 lg:flex-col shadow-lg rounded-lg p-3">
+                <a href="https://2gofintech.io/" target="_blank">
+                  <Image
+                    src={"/parceiros/2gobank.png"}
+                    width={250}
+                    height={250}
+                    alt="2GO Bank"
+                  />
+                </a>
+                <a href="https://bingx.com/pt-br/" target="_blank">
+                  <Image
+                    src={"/parceiros/bingx.png"}
+                    width={300}
+                    height={300}
+                    alt="BingX"
+                  />
+                </a>
+              </div>
+              <div className="flex items-center gap-8 lg:flex-col">
+                <a href="https://agendacrypto.xyz/" target="_blank">
+                  <Image
+                    src={"/parceiros/agenda-crypto.png"}
+                    width={150}
+                    height={150}
+                    alt="Agenda Crypto"
+                  />
+                </a>
+                <a href="https://www.cashfort.com.br/" target="_blank">
+                  <Image
+                    src={"/parceiros/cashfort.png"}
+                    width={150}
+                    height={150}
+                    alt="Cashfort"
+                  />
+                </a>
+                <a href="https://www.zuvia.com.br/" target="_blank">
+                  <Image
+                    src={"/parceiros/zuvia2.png"}
+                    width={150}
+                    height={150}
+                    alt="Zuvia"
+                  />
+                </a>
+                <a href="https://www.camilap2p.com.br/" target="_blank">
+                  <Image
+                    src={"/parceiros/camilap2p.png"}
+                    width={150}
+                    height={150}
+                    alt="Camila p2p"
+                  />
+                </a>
+                <a href="https://bipa.app/" target="_blank">
+                  <Image
+                    src={"/parceiros/bipa.png"}
+                    width={150}
+                    height={150}
+                    alt="Bipa"
+                  />
+                </a>
+                <a href="https://www.criptofacil.com/" target="_blank">
+                  <Image
+                    src={"/parceiros/criptofacil.webp"}
+                    width={200}
+                    height={200}
+                    alt="CRIPTOFACIL"
+                  />
+                </a>
+              </div>
+            </div>
+          </>
+        )}
       </Container>
       <Footer />
     </>
