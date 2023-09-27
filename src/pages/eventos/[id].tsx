@@ -119,6 +119,14 @@ const EventDetail: NextPage<
                     alt="Agenda Crypto"
                   />
                 </a>
+                <a href="https://www.criptomaniacos.io/" target="_blank">
+                  <Image
+                    src={"/parceiros/criptomaniacos.png"}
+                    width={150}
+                    height={150}
+                    alt="Criptomaniacos"
+                  />
+                </a>
                 <a href="https://www.cashfort.com.br/" target="_blank">
                   <Image
                     src={"/parceiros/cashfort.png"}
