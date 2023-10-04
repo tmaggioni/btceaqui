@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { createContext, useEffect } from "react";
 // import { useRouter } from "next/router";
 // import { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { ParallaxProvider } from "react-scroll-parallax";
 const roboto = Roboto({
   weight: "400",
@@ -66,6 +67,7 @@ export default function App({ Component, pageProps }: AppProps) {
     >
       <ParallaxProvider>
         <Component {...pageProps} />
+        <Analytics />
       </ParallaxProvider>
     </div>
   );
