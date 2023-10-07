@@ -33,10 +33,10 @@ export const DiscoverRolante = ({ eventHome }: Props) => {
           />
         </div>
       </div>
-      {/* {eventHome.data.imagem.url && (
+      {eventHome.data.imagem.url && (
         <Link
           href={`/eventos/${(eventHome.data.link as any).uid}`}
-          className="absolute top-[40%] left-0 flex cursor-pointer lg:relative lg:animate-none lg:top-0 lg:m-auto max-h-[203px]"
+          className="absolute top-[40%] left-0 flex cursor-pointer lg:relative lg:animate-none lg:top-0 lg:m-auto max-h-[203px] max-w-[400px] lg:max-w-[300px]"
         >
           <div className="bg-primary w-[36px] h-[203px]">
             <span
@@ -53,7 +53,7 @@ export const DiscoverRolante = ({ eventHome }: Props) => {
             alt={eventHome.data.imagem.alt || "Evento Bitcoin é aqui"}
           />
         </Link>
-      )} */}
+      )}
 
       <div className="container flex items-center justify-center gap-5 mt-[-50px]  lg:flex-col relative z-20 lg:mt-[15px]">
         <div className="flex flex-col gap-3">
