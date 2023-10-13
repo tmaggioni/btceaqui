@@ -41,6 +41,18 @@ const components: JSXMapSerializer = {
   heading4: ({ children }) => {
     return <h4 className="mt-10 mb-1">{children}</h4>;
   },
+  image: ({ node }) => {
+    return (
+      <div className="w-full flex justify-center">
+        <Image
+          src={node.url}
+          alt={node.alt || ""}
+          width={node.dimensions.width}
+          height={node.dimensions.height}
+        />
+      </div>
+    );
+  },
 };
 
 const EventDetail: NextPage<
