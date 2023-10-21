@@ -60,7 +60,7 @@ const PhotosBtcSpringFestival: NextPage<
             }}
           />
         )}
-        <div className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
+        <div className="gap-4 mdMin:columns-1 lgMin:columns-2 xlMin:columns-3 2xlMin:columns-4">
           <div className="h-full pb-4">
             <Image
               src={"/imgs/festival.webp"}
