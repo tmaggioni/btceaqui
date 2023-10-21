@@ -74,13 +74,13 @@ export default function SharedModal({
                 <Image
                   src={`https://res.cloudinary.com/${
                     process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-                  }/image/upload/c_scale,${navigation ? "w_1280" : "w_1920"}/${
-                    currentImage?.public_id
-                  }.${currentImage?.format}`}
+                  }/image/upload/q_60,c_scale,${
+                    navigation ? "w_1280" : "w_1920"
+                  }/${currentImage?.public_id}.${currentImage?.format}`}
                   width={navigation ? 1280 : 1920}
                   height={navigation ? 853 : 1280}
                   priority
-                  alt="Next.js Conf image"
+                  alt="Bitcoin Spring Festival"
                   onLoad={() => setLoaded(true)}
                 />
               </motion.div>
@@ -117,7 +117,7 @@ export default function SharedModal({
               )}
               <div className="absolute top-0 right-0 flex items-center gap-2 p-3 text-white">
                 <a
-                  href={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/${currentImage?.public_id}.${currentImage?.format}`}
+                  href={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/q_50/${currentImage?.public_id}.${currentImage?.format}`}
                   className="rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white"
                   target="_blank"
                   title="Open fullsize version"
