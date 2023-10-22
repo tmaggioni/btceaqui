@@ -95,6 +95,7 @@ export default function SharedModal({
                       ? 853
                       : 1280
                   }
+                  unoptimized
                   priority
                   alt="Bitcoin Spring Festival"
                   onLoad={() => setLoaded(true)}
