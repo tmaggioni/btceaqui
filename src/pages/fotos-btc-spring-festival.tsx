@@ -90,6 +90,7 @@ const PhotosBtcSpringFestival: NextPage<
                 src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/q_50,c_scale,w_720/${public_id}.${format}`}
                 width={720}
                 height={480}
+                unoptimized
                 sizes="(max-width: 640px) 100vw,
                   (max-width: 1280px) 50vw,
                   (max-width: 1536px) 33vw,
