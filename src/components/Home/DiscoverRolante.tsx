@@ -36,7 +36,7 @@ export const DiscoverRolante = ({ eventHome }: Props) => {
       {eventHome.data.imagem.url && (
         <Link
           href={`/eventos/${(eventHome.data.link as any).uid}`}
-          className="absolute top-[40%] left-0 flex cursor-pointer lg:relative lg:animate-none lg:top-0 lg:m-auto max-h-[203px] max-w-[400px] lg:max-w-[300px]"
+          className="absolute top-[40%] left-0 flex cursor-pointer lg:relative lg:animate-none lg:top-0 lg:m-auto max-h-[203px] max-w-[400px] lg:max-w-[300px] lg:overflow-hidden"
         >
           <div className="bg-primary w-[36px] h-[203px]">
             <span
