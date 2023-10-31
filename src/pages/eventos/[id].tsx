@@ -111,6 +111,7 @@ const EventDetail: NextPage<
                     width={250}
                     height={250}
                     alt="2GO Bank"
+                    unoptimized
                   />
                 </a>
                 <a href="https://bingx.com/pt-br/" target="_blank">
@@ -119,6 +120,7 @@ const EventDetail: NextPage<
                     width={300}
                     height={300}
                     alt="BingX"
+                    unoptimized
                   />
                 </a>
               </div>
@@ -129,6 +131,7 @@ const EventDetail: NextPage<
                     width={150}
                     height={150}
                     alt="Agenda Crypto"
+                    unoptimized
                   />
                 </a>
                 <a href="https://www.criptomaniacos.io/" target="_blank">
@@ -137,6 +140,7 @@ const EventDetail: NextPage<
                     width={150}
                     height={150}
                     alt="Criptomaniacos"
+                    unoptimized
                   />
                 </a>
                 <a href="https://www.cashfort.com.br/" target="_blank">
@@ -145,6 +149,7 @@ const EventDetail: NextPage<
                     width={150}
                     height={150}
                     alt="Cashfort"
+                    unoptimized
                   />
                 </a>
                 <a href="https://www.zuvia.com.br/" target="_blank">
@@ -153,6 +158,7 @@ const EventDetail: NextPage<
                     width={150}
                     height={150}
                     alt="Zuvia"
+                    unoptimized
                   />
                 </a>
                 <a href="https://www.camilap2p.com.br/" target="_blank">
@@ -161,6 +167,7 @@ const EventDetail: NextPage<
                     width={150}
                     height={150}
                     alt="Camila p2p"
+                    unoptimized
                   />
                 </a>
                 <a href="https://bipa.app/" target="_blank">
@@ -169,6 +176,7 @@ const EventDetail: NextPage<
                     width={150}
                     height={150}
                     alt="Bipa"
+                    unoptimized
                   />
                 </a>
                 <a href="https://www.criptofacil.com/" target="_blank">
@@ -177,6 +185,7 @@ const EventDetail: NextPage<
                     width={200}
                     height={200}
                     alt="CRIPTOFACIL"
+                    unoptimized
                   />
                 </a>
               </div>
