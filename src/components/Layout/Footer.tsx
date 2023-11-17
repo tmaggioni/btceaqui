@@ -8,6 +8,7 @@ export const Footer = () => {
       <div className="container flex items-center justify-between lg:flex-col lg:items-start lg:gap-5">
         <Link href="/" className="lg:self-center">
           <Image
+            unoptimized
             src={"/imgs/logo.png"}
             width={89}
             height={102}
@@ -108,6 +109,7 @@ export const Footer = () => {
                 className=" hover:text-primary flex items-center gap-1 text-[#383838] text-base transition-all hover:font-bold"
               >
                 <Image
+                  unoptimized
                   width={25}
                   height={25}
                   src={"/imgs/insta.png"}
@@ -124,6 +126,7 @@ export const Footer = () => {
                 className=" hover:text-primary flex items-center gap-1 text-[#383838] text-base transition-all hover:font-bold"
               >
                 <Image
+                  unoptimized
                   width={25}
                   height={25}
                   src={"/imgs/iris.png"}
@@ -139,6 +142,7 @@ export const Footer = () => {
                 className=" hover:text-primary flex items-center gap-1 text-[#383838] text-base transition-all hover:font-bold"
               >
                 <Image
+                  unoptimized
                   width={25}
                   height={25}
                   src={"/imgs/x.png"}
@@ -154,6 +158,7 @@ export const Footer = () => {
                 className=" hover:text-primary flex items-center gap-1 text-[#383838] text-base transition-all hover:font-bold"
               >
                 <Image
+                  unoptimized
                   width={25}
                   height={25}
                   src={"/imgs/whats.png"}

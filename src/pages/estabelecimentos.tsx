@@ -12,7 +12,7 @@ import useOutsideClick from "@/hooks/useOutsideClick";
 import { createClient } from "@/prismicio";
 import { InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
-import { useMemo, useState } from "react";
+import { ReactNode, useMemo, useState } from "react";
 
 function phoneMask(phone: string) {
   return phone
@@ -44,13 +44,52 @@ const Estabelecimentos: NextPage<
   }, [selected, locals, categoriesObject]);
 
   const searchedLocals = useMemo(() => {
-    return search.length > 0
-      ? locals.filter(
-          (item) =>
-            item.data.nome?.toLowerCase().includes(search) ||
-            item.data.tipo?.toLowerCase().includes(search)
-        )
-      : filteredLocals;
+    let searchedLocalsMemo =
+      search.length > 0
+        ? locals.filter(
+            (item) =>
+              item.data.nome?.toLowerCase().includes(search) ||
+              item.data.tipo?.toLowerCase().includes(search)
+          )
+        : filteredLocals;
+
+    return searchedLocalsMemo.map((item: any) => (
+      <div
+        key={item.data.nome}
+        className="bg-white transition-all shadow-lg rounded-md p-6 flex items-start flex-col"
+      >
+        <span className="font-bold text-lg border-gray-100 border-b-[1px]">
+          {item.data.nome}
+        </span>
+        <span className="text-base">{item.data.tipo} </span>
+
+        {(!!item.data.instagram || !!item.data.telefone) && (
+          <div className="w-full bg-gray-100 p-2 rounded-md flex self-end flex-col gap-2 bg-opacity-40 mt-2">
+            {!!item.data.telefone && (
+              <a
+                href={`https://wa.me//55${item.data.telefone}`}
+                target="_blank"
+                className="flex items-center text-base gap-1 font-medium"
+              >
+                <IconWhats className="fill-[#25d366]" width={20} height={20} />
+                {phoneMask(item.data.telefone)}
+              </a>
+            )}
+            {!!item.data.instagram && (
+              <a
+                href={item.data.instagram}
+                target="_blank"
+                className="flex items-center text-base gap-1 font-medium"
+              >
+                <IconInsta className="fill-[#E1306C]" width={20} height={20} />
+
+                {item.data.instagram.split("/")[3]}
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    ));
   }, [search, filteredLocals, locals]);
 
   const handleClickOutside = () => {
@@ -131,51 +170,7 @@ const Estabelecimentos: NextPage<
         )}
 
         <div className="grid grid-cols-3 gap-3 lg:grid-cols-1 pt-10 border-t-4 border-primary">
-          {searchedLocals.map((item: any) => (
-            <div
-              key={item.data.nome}
-              className="bg-white transition-all shadow-lg rounded-md p-6 flex items-start flex-col"
-            >
-              <span className="font-bold text-lg border-gray-100 border-b-[1px]">
-                {item.data.nome}
-              </span>
-              <span className="text-base">{item.data.tipo} </span>
-
-              {(!!item.data.instagram || !!item.data.telefone) && (
-                <div className="w-full bg-gray-100 p-2 rounded-md flex self-end flex-col gap-2 bg-opacity-40 mt-2">
-                  {!!item.data.telefone && (
-                    <a
-                      href={`https://wa.me//55${item.data.telefone}`}
-                      target="_blank"
-                      className="flex items-center text-base gap-1 font-medium"
-                    >
-                      <IconWhats
-                        className="fill-[#25d366]"
-                        width={20}
-                        height={20}
-                      />
-                      {phoneMask(item.data.telefone)}
-                    </a>
-                  )}
-                  {!!item.data.instagram && (
-                    <a
-                      href={item.data.instagram}
-                      target="_blank"
-                      className="flex items-center text-base gap-1 font-medium"
-                    >
-                      <IconInsta
-                        className="fill-[#E1306C]"
-                        width={20}
-                        height={20}
-                      />
-
-                      {item.data.instagram.split("/")[3]}
-                    </a>
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
+          {searchedLocals}
         </div>
         <div className="w-[100%] mt-5 lg:hidden">
           <iframe
