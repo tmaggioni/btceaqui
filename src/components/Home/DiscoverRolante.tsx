@@ -14,6 +14,7 @@ export const DiscoverRolante = ({ eventHome }: Props) => {
     <>
       <div className="w-full relative flex flex-col justify-center items-center h-[80vh] lg:h-auto lg:pt-6 lg:pb-6">
         <Image
+          unoptimized
           src={"/imgs/img-cachoeira.png"}
           fill
           alt="Background"
@@ -46,6 +47,7 @@ export const DiscoverRolante = ({ eventHome }: Props) => {
             </span>
           </div>
           <Image
+            unoptimized
             src={eventHome.data.imagem.url}
             width={eventHome.data.imagem.dimensions.width}
             height={203}
