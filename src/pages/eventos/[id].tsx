@@ -114,7 +114,10 @@ const EventDetail: NextPage<
                     unoptimized
                   />
                 </a>
-                <a href="https://bingx.com/partner/portuguese" target="_blank">
+                <a
+                  href="http://bingx.com/partner/parceirobingx"
+                  target="_blank"
+                >
                   <Image
                     src={"/parceiros/bingx.png"}
                     width={300}
