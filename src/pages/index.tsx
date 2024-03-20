@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { HalvingCountDown } from "@/components/HalvingCountDown";
 import { DiscoverRolante } from "@/components/Home/DiscoverRolante";
 import { IconHotel, IconPin, IconPlane, IconWhats } from "@/components/Icons/";
 import { IconParty } from "@/components/Icons/IconParty";
@@ -29,7 +30,9 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
         <meta property="og:image" content="/imgs/logo.png" />
       </Head>
       <Header />
+      <HalvingCountDown />
       <DiscoverRolante eventHome={eventHome} />
+
       <div className="w-full mt-16 pt-6 pb-6 flex justify-center items-center gap-3">
         <Title>O que fazer na Região?</Title>
       </div>
