@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { IconBtc } from "./Icons/IconBtc";
+import { Button } from "./Button";
 
 type TimeLeft = {
   days: number;
@@ -50,40 +51,44 @@ export const HalvingCountDown: React.FC = () => {
             <IconBtc width={"50px"} height={"50px"} className="fill-primary" />
 
             <span className="italic">
-              Halving Party <span className="text-primary">Rolante</span>
+              Halving's Party <span className="text-primary">Rolante</span>
             </span>
           </h2>
 
           <div className="text-6xl lg:text-3xl text-center flex w-full items-center justify-center">
-            <div className="w-32 border-b-4 border-primary lg:w-20 mx-1 p-2 bg-white shadow-md text-[#3a3939] opacity-70 font-bold rounded-lg">
+            <div className="w-32 border-b-4 border-primary lg:w-20 mx-1 p-2 bg-white shadow-md text-[#3a3939] opacity-90 font-bold rounded-lg">
               <div className="leading-none">
                 {timeLeft.days.toString().padStart(2, "0")}
               </div>
               <div className="uppercase text-xs leading-none">Dias</div>
             </div>
-            <div className="w-32 border-b-4 border-primary lg:w-20 mx-1 p-2 bg-white shadow-md text-[#3a3939] opacity-70 font-bold rounded-lg">
+            <div className="w-32 border-b-4 border-primary lg:w-20 mx-1 p-2 bg-white shadow-md text-[#3a3939] opacity-90 font-bold rounded-lg">
               <div className="leading-none">
                 {timeLeft.hours.toString().padStart(2, "0")}
               </div>
               <div className="uppercase text-xs leading-none">Horas</div>
             </div>
-            <div className="w-32 border-b-4 border-primary lg:w-20 mx-1 p-2 bg-white shadow-md text-[#3a3939] opacity-70 font-bold rounded-lg">
+            <div className="w-32 border-b-4 border-primary lg:w-20 mx-1 p-2 bg-white shadow-md text-[#3a3939] opacity-90 font-bold rounded-lg">
               <div className="leading-none">
                 {timeLeft.minutes.toString().padStart(2, "0")}
               </div>
               <div className="uppercase text-xs leading-none">Min</div>
             </div>
 
-            <div className="w-32 border-b-4 border-primary lg:w-20 mx-1 p-2 bg-white shadow-md text-[#3a3939] opacity-70 font-bold rounded-lg">
+            <div className="w-32 border-b-4 border-primary lg:w-20 mx-1 p-2 bg-white shadow-md text-[#3a3939] opacity-90 font-bold rounded-lg">
               <div className="leading-none">
                 {timeLeft.seconds.toString().padStart(2, "0")}
               </div>
               <div className="uppercase text-sm leading-none">Segs</div>
             </div>
           </div>
-          {/* <div className="relative w-[350px] lg:w-auto border-3 border-purple-500 rounded-sm">
-            <video src="halving.MOV" controls></video>
-          </div> */}
+          <Button
+            label="Confira mais detalhes"
+            className="text-white mt-5"
+            link={"/eventos/halvings-party"}
+            size={"medium"}
+            target="_blank"
+          />
         </div>
       </div>
     </div>
