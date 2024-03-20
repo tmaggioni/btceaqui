@@ -84,7 +84,7 @@ export const HalvingCountDown: React.FC = () => {
             </div>
           </div>
           <Button
-            label="Confira mais detalhes"
+            label="Saiba mais"
             className="text-white mt-5"
             link={"/eventos/halvings-party"}
             size={"medium"}
