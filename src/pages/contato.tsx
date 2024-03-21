@@ -29,7 +29,7 @@ const Contato: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
           property="og:description"
           content="Onde a beleza natural se une à inovação do Bitcoin como forma de pagamento amplamente aceita."
         />
-        <meta property="og:image" content="/imgs/logo.png" />
+        <meta property="og:image" content="/imgs/logobtceaqui.jpg" />
       </Head>
       <Header />
       <Breadcrumbs labels={[{ label: "Contato", path: "" }]} />

@@ -70,7 +70,7 @@ const EventDetail: NextPage<
         <meta name="description" content={event.data.titulo} />
         <meta property="og:title" content={event.data.titulo} />
         <meta property="og:description" content={event.data.titulo} />
-        <meta property="og:image" content="/imgs/logo.png" />
+        <meta property="og:image" content="/imgs/logobtceaqui.jpg" />
       </Head>
       <Header />
       <Breadcrumbs

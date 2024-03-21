@@ -22,7 +22,7 @@ const Aprender: NextPage<
           content="Bitcoin é Aqui! Rolante/Riozinho - Aprender +"
         />
         <meta property="og:description" content="Aprenda mais sobre bitcoin" />
-        <meta property="og:image" content="/imgs/logo.png" />
+        <meta property="og:image" content="/imgs/logobtceaqui.jpg" />
       </Head>
       <Header />
       <Breadcrumbs labels={[{ label: "Aprender +", path: "" }]} />
