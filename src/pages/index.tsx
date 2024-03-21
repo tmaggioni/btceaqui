@@ -31,8 +31,8 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
           property="og:image"
           content="https://www.bitcoineaqui.com.br/imgs/logobtceaqui.jpg"
         />
-        <meta property="og:image:width" content="300" />
-        <meta property="og:image:height" content="300" />
+        <meta property="og:image:width" content="1170" />
+        <meta property="og:image:height" content="1174" />
       </Head>
       <Header />
       <HalvingCountDown />
