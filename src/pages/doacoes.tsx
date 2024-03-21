@@ -28,7 +28,10 @@ const Doacoes: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
           property="og:description"
           content="Onde a beleza natural se une à inovação do Bitcoin como forma de pagamento amplamente aceita."
         />
-        <meta property="og:image" content="/imgs/logobtceaqui.jpg" />
+        <meta
+          property="og:image"
+          content="https://www.bitcoineaqui.com.br/imgs/logobtceaqui.jpg"
+        />
       </Head>
       <Header />
       <Breadcrumbs labels={[{ label: "Doações", path: "" }]} />

@@ -70,7 +70,10 @@ const EventDetail: NextPage<
         <meta name="description" content={event.data.titulo} />
         <meta property="og:title" content={event.data.titulo} />
         <meta property="og:description" content={event.data.titulo} />
-        <meta property="og:image" content="/imgs/logobtceaqui.jpg" />
+        <meta
+          property="og:image"
+          content="https://www.bitcoineaqui.com.br/imgs/logobtceaqui.jpg"
+        />
       </Head>
       <Header />
       <Breadcrumbs

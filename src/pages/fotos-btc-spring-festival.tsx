@@ -49,7 +49,10 @@ const PhotosBtcSpringFestival: NextPage<
           property="og:description"
           content="Fotos - Bitcoin Spring Festival"
         />
-        <meta property="og:image" content="/imgs/logobtceaqui.jpg" />
+        <meta
+          property="og:image"
+          content="https://www.bitcoineaqui.com.br/imgs/logobtceaqui.jpg"
+        />
       </Head>
       <main className="mx-auto max-w-[1960px] p-4 bg-black antialiased">
         {photoId && (
