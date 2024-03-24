@@ -103,7 +103,7 @@ const EventDetail: NextPage<
             components={components}
           />
         </div>
-        {event.uid === "bitcoin-spring-festival-2023" && (
+        {/* {event.uid === "bitcoin-spring-festival-2023" && (
           <>
             <Title>Parceiros</Title>
             <div className="flex flex-col items-center gap-10">
@@ -197,7 +197,7 @@ const EventDetail: NextPage<
               </div>
             </div>
           </>
-        )}
+        )} */}
       </Container>
       <Footer />
     </>
