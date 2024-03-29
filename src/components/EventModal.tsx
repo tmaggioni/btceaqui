@@ -36,7 +36,7 @@ export const EventModal = ({ eventHome }: Props) => {
       className="fixed z-40 inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-70"
     >
       {eventHome.data.imagem.url && (
-        <div className="w-[400px] h-[400px] max-w-[70%] max-h-[90%] flex relative">
+        <div className="w-[1000px] h-[550px] lg:max-w-[80%] lg:max-h-[30%] flex relative">
           <span
             className="w-5 h-5 absolute lg:-top-[2px] lg:-right-[2px] -top-[25px] right-[20px] cursor-pointer fill-white rounded-full z-50 flex items-center justify-center"
             onClick={() => setIsOpen(false)}
