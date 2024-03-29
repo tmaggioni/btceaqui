@@ -33,29 +33,29 @@ export const DiscoverRolante = ({ eventHome }: Props) => {
             size={isMobile ? "medium" : "big"}
           />
         </div>
+        {/* {eventHome.data.imagem.url && (
+          <Link
+            href={`/eventos/${(eventHome.data.link as any).uid}`}
+            className="absolute top-[40%] left-0 flex cursor-pointer lg:relative lg:animate-none lg:top-0 lg:m-auto lg:mt-10 max-h-[203px] max-w-[400px] lg:max-w-[300px] lg:overflow-hidden"
+          >
+            <div className="bg-primary w-[36px] h-[203px]">
+              <span
+                className={`text-[15px] whitespace-nowrap uppercase block font-bold drop-shadow-title rotate-[-90deg] relative top-[130px]`}
+              >
+                Próximo evento
+              </span>
+            </div>
+            <Image
+              unoptimized
+              src={eventHome.data.imagem.url}
+              width={eventHome.data.imagem.dimensions.width}
+              height={203}
+              className="object-cover"
+              alt={eventHome.data.imagem.alt || "Evento Bitcoin é aqui"}
+            />
+          </Link>
+        )} */}
       </div>
-      {/* {eventHome.data.imagem.url && (
-        <Link
-          href={`/eventos/${(eventHome.data.link as any).uid}`}
-          className="absolute top-[40%] left-0 flex cursor-pointer lg:relative lg:animate-none lg:top-0 lg:m-auto max-h-[203px] max-w-[400px] lg:max-w-[300px] lg:overflow-hidden"
-        >
-          <div className="bg-primary w-[36px] h-[203px]">
-            <span
-              className={`text-[15px] whitespace-nowrap uppercase block font-bold drop-shadow-title rotate-[-90deg] relative top-[130px]`}
-            >
-              Próximo evento
-            </span>
-          </div>
-          <Image
-            unoptimized
-            src={eventHome.data.imagem.url}
-            width={eventHome.data.imagem.dimensions.width}
-            height={203}
-            className="object-cover"
-            alt={eventHome.data.imagem.alt || "Evento Bitcoin é aqui"}
-          />
-        </Link>
-      )} */}
 
       <div className="container flex items-center justify-center gap-5 mt-[-50px]  lg:flex-col relative z-20 lg:mt-[15px]">
         <div className="flex flex-col gap-3">

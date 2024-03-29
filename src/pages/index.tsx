@@ -1,4 +1,5 @@
 import { Button } from "@/components/Button";
+import { EventModal } from "@/components/EventModal";
 import { HalvingCountDown } from "@/components/HalvingCountDown";
 import { DiscoverRolante } from "@/components/Home/DiscoverRolante";
 import { IconHotel, IconPin, IconPlane, IconWhats } from "@/components/Icons/";
@@ -35,6 +36,7 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
         <meta property="og:image:height" content="1174" />
       </Head>
       <Header />
+      <EventModal eventHome={eventHome} />
       <HalvingCountDown />
       <DiscoverRolante eventHome={eventHome} />
 
