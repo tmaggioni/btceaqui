@@ -38,7 +38,7 @@ export const EventModal = ({ eventHome }: Props) => {
       {eventHome.data.imagem.url && (
         <div className="w-[400px] h-[400px] max-w-[70%] max-h-[90%] flex relative">
           <span
-            className="w-5 h-5 absolute -top-[25px] right-[20px] cursor-pointer fill-white rounded-full z-50 flex items-center justify-center"
+            className="w-5 h-5 absolute lg:-top-[9px] lg:-right-[2px] -top-[25px] right-[20px] cursor-pointer fill-white rounded-full z-50 flex items-center justify-center"
             onClick={() => setIsOpen(false)}
           >
             <IconClose />
