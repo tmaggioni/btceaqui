@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { EventohomeDocument } from "../../prismicio-types";
 import Link from "next/link";
+import { IconClose } from "./Icons/IconClose";
 
 interface Props {
   eventHome: EventohomeDocument<string>;
@@ -35,18 +36,26 @@ export const EventModal = ({ eventHome }: Props) => {
       className="fixed z-40 inset-0 w-full h-full flex items-center justify-center bg-black bg-opacity-70"
     >
       {eventHome.data.imagem.url && (
-        <Link
-          href={`/eventos/${(eventHome.data.link as any).uid}`}
-          className="w-[400px] h-[400px] max-w-[70%] max-h-[90%] relative"
-        >
-          <Image
-            unoptimized
-            src={eventHome.data.imagem.url}
-            fill
-            className="object-contain"
-            alt={eventHome.data.imagem.alt || "Evento Bitcoin é aqui"}
-          />
-        </Link>
+        <div className="w-[400px] h-[400px] max-w-[70%] max-h-[90%] flex relative">
+          <span
+            className="w-5 h-5 absolute -top-[25px] right-[20px] cursor-pointer fill-white rounded-full z-50 flex items-center justify-center"
+            onClick={() => setIsOpen(false)}
+          >
+            <IconClose />
+          </span>
+          <Link
+            href={`/eventos/${(eventHome.data.link as any).uid}`}
+            className="w-full h-full relative"
+          >
+            <Image
+              unoptimized
+              src={eventHome.data.imagem.url}
+              fill
+              className="object-contain"
+              alt={eventHome.data.imagem.alt || "Evento Bitcoin é aqui"}
+            />
+          </Link>
+        </div>
       )}
     </div>
   );
