@@ -77,7 +77,7 @@ const HeaderMobile = forwardRef<HTMLDivElement, Props>(
           </Link>
 
           <div className="flex items-center gap-3">
-            <a href="https://www.instagram.com/bitcoineaqui/" target="_blank">
+            <a href="https://www.instagram.com/bitcoinrolante" target="_blank">
               <Image
                 width={25}
                 height={25}

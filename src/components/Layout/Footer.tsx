@@ -104,7 +104,7 @@ export const Footer = () => {
           <ul className="list-none flex flex-col gap-3">
             <li>
               <Link
-                href="https://www.instagram.com/bitcoineaqui/"
+                href="https://www.instagram.com/bitcoinrolante"
                 target="_blank"
                 className=" hover:text-primary flex items-center gap-1 text-[#383838] text-base transition-all hover:font-bold"
               >
