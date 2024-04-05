@@ -37,7 +37,7 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
       </Head>
       <Header />
       {/* <EventModal eventHome={eventHome} /> */}
-      <HalvingCountDown />
+      <HalvingCountDown eventHome={eventHome} />
       <DiscoverRolante eventHome={eventHome} />
 
       <div className="w-full mt-16 pt-6 pb-6 flex justify-center items-center gap-3">
