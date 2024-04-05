@@ -36,7 +36,7 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getStaticProps>> = ({
         <meta property="og:image:height" content="1174" />
       </Head>
       <Header />
-      <EventModal eventHome={eventHome} />
+      {/* <EventModal eventHome={eventHome} /> */}
       <HalvingCountDown />
       <DiscoverRolante eventHome={eventHome} />
 
