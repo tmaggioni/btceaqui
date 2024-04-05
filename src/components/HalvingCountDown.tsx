@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { IconBtc } from "./Icons/IconBtc";
 import { Button } from "./Button";
+import Image from "next/image";
 
 type TimeLeft = {
   days: number;
@@ -44,13 +45,16 @@ export const HalvingCountDown: React.FC = () => {
   return (
     <div className=" p-10 shadow-md  background-animate lg:h-auto">
       <div className="container flex gap-3 items-center justify-center">
-        {/* <div className="relative w-[350px] lg:w-auto border-3 border-purple-500 rounded-sm">
-          <video src="halving.MOV" controls></video>
-        </div> */}
         <div className="flex flex-col items-center gap-3">
           <h2 className="text-[50px] lg:text-2xl text-center font-bold  text-[#3a3939]  flex items-center flex-col">
-            <IconBtc width={"50px"} height={"50px"} className="fill-primary" />
-
+            {/* <IconBtc width={"50px"} height={"50px"} className="fill-primary" /> */}
+            <Image
+              src={"/imgs/bitybank.png"}
+              unoptimized
+              width={350}
+              height={132}
+              alt="Bity Bank"
+            />
             <span className="italic">
               Halving's Party <span className="text-primary">Rolante</span>
             </span>
