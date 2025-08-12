@@ -94,6 +94,12 @@ export const Header = () => {
             >
               Contato
             </Link>
+            <Link
+              href={"/monitoramento"}
+              className="bg-white p-1 hover:bg-primary rounded-md text-base  hover:text-white transition-all hover:font-bold"
+            >
+              Monitoramento
+            </Link>
             <div className="flex items-center gap-3 absolute right-0 top-[50%] translate-y-[-50%]">
               <div
                 className="cursor-pointer"

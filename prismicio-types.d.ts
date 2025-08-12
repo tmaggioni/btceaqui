@@ -480,6 +480,49 @@ export type HotelariaDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for Monitoramento documents
+ */
+interface MonitoramentoDocumentData {
+  /**
+   * Título field in *Monitoramento*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: monitoramento.titulo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titulo: prismic.KeyTextField;
+
+  /**
+   * Descrição field in *Monitoramento*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: monitoramento.descricao
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  descricao: prismic.RichTextField;
+}
+
+/**
+ * Monitoramento document from Prismic
+ *
+ * - **API ID**: `monitoramento`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MonitoramentoDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<MonitoramentoDocumentData>,
+    "monitoramento",
+    Lang
+  >;
+
+/**
  * Content for Pontos turísticos documents
  */
 interface PontosTuristicosDocumentData {
@@ -554,6 +597,7 @@ export type AllDocumentTypes =
   | EventohomeDocument
   | EventosDocument
   | HotelariaDocument
+  | MonitoramentoDocument
   | PontosTuristicosDocument;
 
 declare module "@prismicio/client" {
@@ -584,6 +628,8 @@ declare module "@prismicio/client" {
       EventosDocumentData,
       HotelariaDocument,
       HotelariaDocumentData,
+      MonitoramentoDocument,
+      MonitoramentoDocumentData,
       PontosTuristicosDocument,
       PontosTuristicosDocumentData,
       AllDocumentTypes,

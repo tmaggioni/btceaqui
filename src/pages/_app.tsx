@@ -14,7 +14,7 @@ const roboto = Roboto({
 });
 
 export const IsSsrMobileContext = createContext(false);
-
+debugger;
 export default function App({ Component, pageProps }: AppProps) {
   const { isFallback, events } = useRouter();
 
